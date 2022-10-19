@@ -6,6 +6,10 @@
     align-items: center;
     justify-content: space-between;
     .todo {
+        position: relative;
         cursor: pointer;
+    }
+    .todo:hover {
+        text-decoration: underline;
     }
 }
