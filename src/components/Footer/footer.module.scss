@@ -2,4 +2,10 @@
     padding: 20px;
     // background-color: rgb(121, 72, 111);
     height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .todo {
+        cursor: pointer;
+    }
 }

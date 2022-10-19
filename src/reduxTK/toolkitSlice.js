@@ -5,6 +5,7 @@ export const toolkitSlice = createSlice({
     name: 'toolkit',
     initialState: {
         count: 0,
+        userName: 'Denchik'
     },
     reducers: {
         increment(state) {
