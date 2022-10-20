@@ -1,3 +1,21 @@
 .greeting {
     font-size: 54px;
+
+    input {
+        resize: horizontal;
+        min-width: 300px;
+        font-size: 54px;
+        background: transparent;
+        outline: none;
+        border: none;
+        color: #fff;
+
+        &:active {
+            width: auto;
+        }
+
+        &:focus {
+            min-width: 350px;
+        }
+    }
 }

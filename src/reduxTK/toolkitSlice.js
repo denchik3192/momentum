@@ -5,7 +5,7 @@ export const toolkitSlice = createSlice({
     name: 'toolkit',
     initialState: {
         count: 0,
-        userName: 'Denchik'
+        userName: 'Denchik111'
     },
     reducers: {
         increment(state) {
@@ -13,9 +13,12 @@ export const toolkitSlice = createSlice({
         },
         decrement(state) {
             state.count -= 1;
-        }
+        },
+        changeUserName(state) {
+            state.userName += 'test';
+        },
     }
 })
 
 export default toolkitSlice.reducer;
-export const {decrement, increment} = toolkitSlice.actions;
+export const {decrement, increment, changeUserName} = toolkitSlice.actions;

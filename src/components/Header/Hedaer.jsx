@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import s from "./header.module.scss";
 import Player from "./Player/Player";
 import Weather from "./Weather/Weather";
 
 const Header = (props) => {
-  return <header className={s.header}>
+  const [weatherActive, setWeatherActive] = useState(false);
+
+  const toggleWeather = () => {
+    weatherActive ? setWeatherActive(false) : setWeatherActive(true);
+    console.log(weatherActive);
+  }
+
+  return (
+    <header className={s.header}>
       <Player />
-      <Weather />
-    </header>;
+      <div className={s.weatherIcon} onClick={ toggleWeather }>weather</div>
+      <Weather active={weatherActive}/>
+    </header>
+  );
 };
 
 export default Header;

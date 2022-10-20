@@ -8,15 +8,20 @@ const ToDo = ({ active, setActive }) => {
       <div className={s.todoHedaer}>Today</div>
       <div className={s.todoItem}>
         <input type="checkbox" name="" id="" />
+        <label htmlFor="">123</label>
       </div>
       <div className={s.todoItem}>
         <input type="checkbox" name="" id="" />
+        <label htmlFor="">22222</label>
       </div>
       <div className={s.todoItem}>
         <input type="checkbox" name="" id="" />
+        <label htmlFor="">33333333</label>
       </div>
 
-      <div className={s.todoFooter}>ToDo</div>
+      <div className={s.todoFooter}>
+        <input type="text" name="" id={s.toDoInput} placeholder="Add ToDo" />
+      </div>
     </div>
   );
 };

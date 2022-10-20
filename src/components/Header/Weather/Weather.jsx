@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import s from "./weather.module.scss";
+import cn from "classnames";
 const axios = require("axios").default;
 
-const Weather = () => {
+
+const Weather = ({active}) => {
   const [weather, setWeather] = useState(0);
   const [description, setDescription] = useState("");
   const [wind, setWind] = useState(0);
@@ -51,7 +53,8 @@ const Weather = () => {
     //   <div className={s.wind}>{wind}m/s</div>
     //   <div className={s.humidity}>{humidity}</div>
     // </div>
-    <div className={s.weather}>
+   
+    <div className={active ? cn(s.weather, s.active) : s.weather}>
       {/* <input type="text" className={s.city} onChange={(e) => setCity(e.target.value)} value={city}/> */}
       <section className={s.weatherSection}>
         <div className={s.header}>

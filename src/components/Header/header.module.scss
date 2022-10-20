@@ -1,6 +1,12 @@
 .header {
+    position: relative;
     min-height: 200px;
     display: flex;
     justify-content: space-between;
     padding: 20px;
+}
+
+.weatherIcon:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
