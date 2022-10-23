@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { changeUserName } from "../../../reduxTK/toolkitSlice";
 import s from "./greeting.module.scss";
 
-function Greeting() {
+const Greeting = () =>{
   const userName = useSelector((state) => state.toolkit.userName);
   const dispatch = useDispatch();
+
+  const onUserNameChange = (e) => {
+    dispatch(changeUserName(e.currentTarget.value));
+  }
 
   return (
     <div className={s.greeting}>
@@ -15,7 +19,7 @@ function Greeting() {
         type="text"
         size="1"
         value={userName}
-        onChange={() => dispatch(changeUserName())}
+        onChange={onUserNameChange}
       />
       .
     </div>

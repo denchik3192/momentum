@@ -16,9 +16,9 @@ function App() {
     <div className="app">
       <Header />
       <Main />
-      <h2>Counter:{count}</h2>
-      <button onClick={() => dispatch(increment())}>increment </button>
-      <button onClick={() => dispatch(decrement())}>decrement </button>
+      {/* <h2>Counter:{count}</h2> */}
+      {/* <button onClick={() => dispatch(increment())}>increment </button>
+      <button onClick={() => dispatch(decrement())}>decrement </button> */}
       <Footer />
     </div>
   );
