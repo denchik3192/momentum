@@ -8,16 +8,28 @@ export const todoSlice = createSlice({
             { id: 2, content: 'date with friends' },
         ],
         doneTodos : [
-            { id: 1, content: 'make a call2' },
-            { id: 2, content: 'date with friends2' },
+            { id: 1, content: 'make a call2', checked: true },
+            { id: 2, content: 'date with friends2', checked: true},
         ],
     },
     reducers : {
-        addToDo(state, payload) {
-            state=state.todos.push({ id: 3, content: `${payload}` });
+        addToDo(state, action) {
+            const content = action.payload
+            const newId = state.todos.length + 1;
+            
+            state.todos.push({ id: newId, content: `${content}` });
+        },
+        addDoneToDo(state, action) {
+            const content = action.payload
+            const newId = state.todos.length + 1;
+            
+            state.doneTodos.push({ id: newId, content: `${content}` });
+        },
+        deleteToDo(state, action) {
+            state.todos.pop();
         }
     }
 })
 
 export default todoSlice.reducer;
-export const {addToDo} = todoSlice.actions;
+export const {addToDo, deleteToDo, addDoneToDo} = todoSlice.actions;

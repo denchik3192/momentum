@@ -7,15 +7,19 @@ import { useState } from "react";
 import { useKeyPress } from "./useKeyPres";
 import { useEffect } from "react";
 import { useRef } from "react";
-import { addToDo } from "../../../reduxTK/todoSlice";
+import { addToDo, deleteToDo } from "../../../reduxTK/todoSlice";
 
 const ToDo = ({ active }) => {
-  const ref = useRef(null);
+  // const ref = useRef('Enter');
   const [newToDo, setNewToDo] = useState("");
-  const todo = useSelector((state) => state.todo.todos);
+  const todos = useSelector((state) => state.todo);
   const dispatch = useDispatch();
 
-  const todosElements = todo.map((todo) => (
+  const todosElements = todos.todos.map((todo) => (
+    <ToDoItem content={todo.content} key={todo.id} />
+  ));
+
+  const doneTodosElements = todos.doneTodos.map((todo) => (
     <ToDoItem content={todo.content} key={todo.id} />
   ));
 
@@ -23,28 +27,28 @@ const ToDo = ({ active }) => {
     setNewToDo(e.currentTarget.value);
   };
 
-  useEffect(() => {
-    const handleClick = event => {
-      if(event.key === 'Enter') {
-        console.log(event.key);
-        dispatch(addToDo(newToDo))
-      }
-    };
+  // useEffect(() => {
+  //   const handleClick = event => {
+  //     if(event.key === 'Enter')dispatch(addToDo(newToDo))
 
-    const element = ref.current;
+  //   };
 
-    element.addEventListener('keydown', handleClick);
-    return () => {
-      element.removeEventListener('keydown', handleClick);
-    };
+  //   const element = ref.current;
 
-  }, []);
+  //   element.addEventListener('keydown', handleClick);
+  //   return () => {
+  //     element.removeEventListener('keydown', handleClick);
+  //   };
+
+  // }, []);
 
   return (
     <div className={active ? cn(s.todo, s.active) : s.todo}>
-      <div className={s.todoHedaer}>Today</div>
+      <div className={s.todoHedaer}>ToDo</div>
 
       {todosElements}
+      <div className={s.doneTodos}>{doneTodosElements}</div>
+
       <div className={s.todoFooter}>
         <input
           type="text"
@@ -53,8 +57,21 @@ const ToDo = ({ active }) => {
           id={s.toDoInput}
           placeholder="Add ToDo"
           onChange={onToDoChange}
-          ref={ref}
+          // ref={ref}
         />
+
+        <button
+          className={s.toDoButton}
+          onClick={() => {
+            dispatch(addToDo(newToDo));
+            setNewToDo("");
+          }}
+        >
+          add todo
+        </button>
+        <button className={s.toDoButton} onClick={() => dispatch(deleteToDo())}>
+          remove todo
+        </button>
       </div>
     </div>
   );

@@ -3,7 +3,8 @@
     z-index: -2;
     padding: 20px;
     right: 10px;
-    top: 550px;
+    top: auto;
+    bottom:  200px;
     height: auto;
     width: 300px;
     border-radius: 4px;
@@ -12,6 +13,10 @@
     transform: translateY(+50px);
     opacity: 0;
     transition: 0.2s ease-in-out;
+    .todoHedaer {
+        text-align: left;
+        font-size: 32px;
+    }
     #toDoInput {
         display: inline-block;
         margin-top: 10px;
@@ -29,6 +34,10 @@
         }
         
     }
+    .toDoButton {
+        width: 100px;
+        height: 50px;
+    }
     &::after {
         position: absolute;
         content: '';
@@ -43,7 +52,11 @@
         transform: translateY(0px);
         z-index:1;
         opacity: 1;
-        transition: 0.2s;
+        transition: 0.3s;
         
     }
+}
+
+.doneTodos {
+    text-decoration: line-through;
 }
