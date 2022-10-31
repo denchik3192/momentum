@@ -14,12 +14,16 @@ const Auth = () => {
     "Field Password can not be empty"
   );
   const [formValid, setFormValid] = useState(false);
-  // const {isAuth, setIsAuth} = useContext(AuthContext)
-  // const login = event => {
-  //   event.preventDefault();
-  //   setIsAuth(true);
-  //   localStorage.setItem('auth', 'true')
-  // }
+  const {isAuth, setIsAuth} = useContext(AuthContext);
+  console.log(isAuth);
+
+  const login = event => {
+    console.log(isAuth);
+    event.preventDefault();
+    setIsAuth(true);
+    localStorage.setItem('auth', 'true')
+  }
+
   useEffect(() => {
     if (emailError || passwordError) {
       setFormValid(false);
@@ -58,11 +62,13 @@ const Auth = () => {
       case "current-password":
         setTouchedPassword(true);
         break;
+        default:
     }
   };
 
   return (
-    <form className={s.form} >
+    <div className={s.formWrapper}>
+      <form onSubmit={login} className={s.form}>
       <h1>Registration</h1>
       {touchedEmail && emailError && (
         <div className={s.error}>{emailError}</div>
@@ -91,7 +97,9 @@ const Auth = () => {
       <button disabled={!formValid} type="submit">
         Registration
       </button>
-    </form>
+      </form>
+    </div>
+    
   );
 };
 
