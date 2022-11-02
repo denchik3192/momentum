@@ -16,7 +16,7 @@ const ToDo = ({ active }) => {
   const dispatch = useDispatch();
 
   const todosElements = todos.todos.map((todo) => (
-    <ToDoItem content={todo.content} key={todo.id} />
+    <ToDoItem content={todo.content} key={todo.id} id={todo.id}/>
   ));
 
   const doneTodosElements = todos.doneTodos.map((todo) => (
@@ -27,20 +27,12 @@ const ToDo = ({ active }) => {
     setNewToDo(e.currentTarget.value);
   };
 
-  // useEffect(() => {
-  //   const handleClick = event => {
-  //     if(event.key === 'Enter')dispatch(addToDo(newToDo))
-
-  //   };
-
-  //   const element = ref.current;
-
-  //   element.addEventListener('keydown', handleClick);
-  //   return () => {
-  //     element.removeEventListener('keydown', handleClick);
-  //   };
-
-  // }, []);
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      dispatch(addToDo(newToDo));
+      setNewToDo("");
+    }
+  };
 
   return (
     <div className={active ? cn(s.todo, s.active) : s.todo}>
@@ -55,23 +47,10 @@ const ToDo = ({ active }) => {
           name="newToDo"
           value={newToDo}
           id={s.toDoInput}
-          placeholder="Add ToDo"
-          onChange={onToDoChange}
-          // ref={ref}
+          placeholder="New"
+          onChange={onToDoChange}//check!
+          onKeyPress={(e) => handleKeyPress(e)}
         />
-
-        <button
-          className={s.toDoButton}
-          onClick={() => {
-            dispatch(addToDo(newToDo));
-            setNewToDo("");
-          }}
-        >
-          add todo
-        </button>
-        <button className={s.toDoButton} onClick={() => dispatch(deleteToDo())}>
-          remove todo
-        </button>
       </div>
     </div>
   );

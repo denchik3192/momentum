@@ -1,4 +1,47 @@
 .todoItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     text-transform: capitalize;
-    text-align: left;
+
+    label {
+        padding-left: 5px;
+        display: block;
+        margin-right: auto;
+    }
+
+    .deleteTodoItem {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        border: none;
+        transition: 0.3s ease-in-out;
+
+        .imageBlock {
+            margin: 0 auto;
+            width: 20px;
+            height: 20px;
+            background-image: url('../../../../assets/del-icon.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .editBlock {
+            margin: 0 auto;
+            width: 20px;
+            height: 20px;
+            background-image: url('../../../../assets/edit.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+
+    .deleteTodoItem:hover {
+        background: rgb(225, 225, 225);
+        border-radius: 50%;
+        transition: 0.3s ease-in;
+    }
 }

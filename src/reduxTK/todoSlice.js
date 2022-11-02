@@ -22,8 +22,9 @@ export const todoSlice = createSlice({
         addDoneToDo(state, action) {
             const content = action.payload
             const newId = state.todos.length + 1;
+            console.log(content);
             
-            state.doneTodos.push({ id: newId, content: `${content}` });
+            state.doneTodos.push({ id: newId, content: `${content}` });//check
         },
         deleteToDo(state, action) {
             state.todos.pop();
