@@ -28,7 +28,7 @@ const ToDo = ({ active }) => {
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && newToDo) {//ask
       dispatch(addToDo(newToDo));
       setNewToDo("");
     }

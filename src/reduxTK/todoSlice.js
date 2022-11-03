@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { weatherAPI } from "../API/API";
 
 export const todoSlice = createSlice({
     name: 'todo',

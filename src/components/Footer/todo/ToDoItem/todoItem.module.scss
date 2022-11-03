@@ -3,13 +3,7 @@
     align-items: center;
     justify-content: space-between;
     text-transform: capitalize;
-
-    label {
-        padding-left: 5px;
-        display: block;
-        margin-right: auto;
-    }
-
+    transition: 0.3;
     .deleteTodoItem {
         display: flex;
         align-items: center;
@@ -18,30 +12,67 @@
         height: 30px;
         cursor: pointer;
         border: none;
-        transition: 0.3s ease-in-out;
 
         .imageBlock {
             margin: 0 auto;
             width: 20px;
             height: 20px;
-            background-image: url('../../../../assets/del-icon.svg');
             background-position: center;
             background-repeat: no-repeat;
+            scale: (0);
         }
 
         .editBlock {
             margin: 0 auto;
             width: 20px;
             height: 20px;
-            background-image: url('../../../../assets/edit.svg');
             background-position: center;
             background-repeat: no-repeat;
+            scale: (0);
         }
     }
 
-    .deleteTodoItem:hover {
-        background: rgb(225, 225, 225);
-        border-radius: 50%;
-        transition: 0.3s ease-in;
+    label {
+        padding-left: 5px;
+        display: block;
+        margin-right: auto;
+    }
+
+    &:hover {
+        // font-weight: bold;
+        color: rgb(43, 43, 43);
+        transition: 0.3s;
+        .deleteTodoItem {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            border: none;
+            transition: 0.2s ease-in-out;
+    
+            .imageBlock {
+                background-image: url('../../../../assets/del-icon.svg');
+                background-position: center;
+                background-repeat: no-repeat;
+                scale: (1);
+                transition: 0.2s ease-in-out;
+            }
+    
+            .editBlock {
+                background-image: url('../../../../assets/edit.svg');
+                background-position: center;
+                background-repeat: no-repeat;
+                scale: (1);
+                transition: 0.2s ease-in-out;
+            }
+        }
+    
+        .deleteTodoItem:hover {
+            background: rgb(225, 225, 225);
+            border-radius: 50%;
+            transition: 0.3s ease-in;
+        }
     }
 }

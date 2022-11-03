@@ -12,7 +12,7 @@ const Weather = ({active}) => {
   const [location, setLocation] = useState("");
 
   useEffect(() => {
-    async function fetchData() {
+    async function fetchData() { //ToDo make api file for fetching data
       try {
         const cit = "Mogilev";
         const res = await axios.get(

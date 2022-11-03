@@ -5,7 +5,7 @@ import { addDoneToDo, deleteToDo } from "../../../../reduxTK/todoSlice";
 import s from "./todoItem.module.scss";
 
 const ToDoItem = ({ content, id }) => {
-  console.log(id);
+  // console.log(id);
   const dispatch = useDispatch();
 
   const handleIChekboxChange = (e) => {
