@@ -11,7 +11,7 @@ class Main extends React.Component {
     return (
       <main className={s.main}>
         <Time />
-        <Date />
+        {/* <Date /> */}
         <Greeting />
         <Focus />
       </main>

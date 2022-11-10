@@ -20,13 +20,11 @@ const Header = (props) => {
  
   return (
     <header className={s.header}>
-      <audio src="../../assets/musik/River Flows In You.mp3"/>
       <Player audioElem={audioElem} songs={songs} setSongs={setSongs} isPlaying={isPlaying} setIsPlaying={setIsPlaying}/>
-      {/* {audioElem} */}
       {/* <Link to="/todopage"> ToDoPage </Link>
       <Link to="/login"> Login </Link> */}
       <div className={s.weatherIcon} onClick={ toggleWeather }> <WiDaySleet /></div>
-      <Weather active={weatherActive}/>
+      <Weather active={weatherActive} setActive={setWeatherActive}/>
     </header>
   );
 };

@@ -6,26 +6,26 @@ import ToDo from "./todo/ToDo";
 
 const Footer = (props) => {
   const [todoActive, setTodoActive] = useState(false);
-  const [settingsActive, setsettingsActive] = useState(false);
+  const [settingsActive, setSettingsActive] = useState(false);
 
   const toggleToDo = () => {
     todoActive ? setTodoActive(false) : setTodoActive(true);
   };
 
   const toggleSettings = () => {
-    settingsActive ? setsettingsActive(false) : setsettingsActive(true);
+    settingsActive ? setSettingsActive(false) : setSettingsActive(true);
   };
 
   return (
     <footer className={s.footer}>
       <div className={s.settingsButton} onClick={toggleSettings}></div>
-      <Settings active={settingsActive} />
+      <Settings active={settingsActive} setSettingsActive={setSettingsActive}/>
       <div className="qoute">
         Spread love everywhere you go. Let no one ever come to you without
         leaving happier.
       </div>
       <div className={s.todo} onClick={toggleToDo}>
-        todo
+        ToDo
         {/* <ToDo active={todoActive} onClick={toggleToDo}/> */}
       </div>
       <ToDo active={todoActive} onClick={toggleToDo}/>

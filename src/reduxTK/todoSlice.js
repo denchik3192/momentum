@@ -23,7 +23,7 @@ export const todoSlice = createSlice({
         addDoneToDo(state, action) {
             const content = action.payload
             const newId = state.todos.length + 1;
-            console.log(content);s
+            console.log(content);
             
             state.doneTodos.push({ id: newId, content: `${content}` });//check
         },

@@ -4,7 +4,7 @@ import cn from "classnames";
 import SettingsItem from "./SettingsItem/SettingsItem";
 import FunToggle from "./funToggle/FunToggle";
 
-const Settings = ({ active }) => {
+const Settings = ({ active, setSettingsActive }) => {
   const settings = [
     { id: 1, name: "time" },
     { id: 2, name: "date" },
@@ -20,10 +20,18 @@ const Settings = ({ active }) => {
   ));
 
   return (
-    <div className={active ? cn(s.settings, s.active) : s.settings}>
-      {/* <FunToggle /> */}
-      <h3>Settings</h3>
-      {settingsElements}
+    <div
+      className={active ? cn(s.settingsWrapper, s.active) : s.settingsWrapper}
+      onClick={() => setSettingsActive(false)}
+    >
+      <div
+        className={active ? cn(s.settings, s.active) : s.settings}
+        onClick={() => setSettingsActive(false)}
+      >
+        {/* <FunToggle /> */}
+        <h3>Settings</h3>
+        {settingsElements}
+      </div>
     </div>
   );
 };

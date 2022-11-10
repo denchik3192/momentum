@@ -4,7 +4,7 @@ import cn from "classnames";
 import { WiDaySleet } from "react-icons/wi";
 const axios = require("axios").default;
 
-const Weather = ({ active }) => {
+const Weather = ({ active, setActive }) => {
   const [weather, setWeather] = useState(0);
   const [description, setDescription] = useState("");
   const [wind, setWind] = useState(0);
@@ -48,20 +48,8 @@ const Weather = ({ active }) => {
  
 
   return (
-    // <div className={s.weather}>
-    //   <input type="text" className={s.city} onChange={(e) => setCity(e.target.value)} value={city}/>
-    //   <p>City: {city}</p>
-    //   <i></i>
-    //   <div className={s.weatherError}></div>
-    //   <div className={s.descriptionContainer}>
-    //     <span className={s.temperature}>{weather}</span>
-    //     <span className={s.weatherDescription}>{description}</span>
-    //   </div>
-    //   <div className={s.wind}>{wind}m/s</div>
-    //   <div className={s.humidity}>{humidity}</div>
-    // </div>
-
-    <div className={active ? cn(s.weather, s.active) : s.weather}>
+    <div className={active ? cn(s.weatherWrapper, s.active) : s.weatherWrapper} onClick={() => setActive(false)}>
+    <div className={active ? cn(s.weather, s.active) : s.weather}  onClick={e => e.stopPropagation()}>
       {/* <input type="text" className={s.city} onChange={(e) => setCity(e.target.value)} value={city}/> */}
       <section className={s.weatherSection}>
         <div className={s.header}>
@@ -85,6 +73,7 @@ const Weather = ({ active }) => {
         </div>
         {/* <div className={s.weatherError}></div> */}
       </section>
+    </div>
     </div>
   );
 };
