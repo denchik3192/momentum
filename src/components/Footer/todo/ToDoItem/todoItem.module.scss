@@ -50,14 +50,14 @@
             height: 30px;
             cursor: pointer;
             border: none;
-            transition: 0.2s ease-in-out;
+            // transition: 0.2s ease-in-out;
     
             .imageBlock {
                 background-image: url('../../../../assets/del-icon.svg');
                 background-position: center;
                 background-repeat: no-repeat;
                 scale: (1);
-                transition: 0.2s ease-in-out;
+                // transition: 0.2s ease-in-out;
             }
     
             .editBlock {
@@ -65,7 +65,7 @@
                 background-position: center;
                 background-repeat: no-repeat;
                 scale: (1);
-                transition: 0.2s ease-in-out;
+                // transition: 0.2s ease-in-out;
             }
         }
     

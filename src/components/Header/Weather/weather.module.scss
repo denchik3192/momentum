@@ -1,8 +1,8 @@
-.weather {
+   .weather {
     position: absolute;
     z-index: -2;
     right: 10px;
-    top: 60px;
+    top: 70px;
     width: 440px;
     height: 220px;
     background: #fff;
@@ -32,10 +32,12 @@
                 }
 
                 .weatherDescription {
+                    // font-style: italic;
+                    text-transform: capitalize;
                     margin: 0 0 10px;
                     display: block;
                     line-height: 1.25;
-                    opacity: 0.7;
+                    opacity: 0.6;
                 }
 
             }
@@ -52,11 +54,17 @@
             .temperature {
                 display: block;
                 font-size: 54px;
-                color: #646a6f;
+                color: #646f6c;
             }
+            .weatherIcon {
+                margin-right: auto;
+                font-size: 48px;
+            }
+
             .additionalDescr {
-                font-size: 18px;
-                font-style: italic;
+                font-size: 16px;
+                // font-style: italic;
+                text-align: left;
             }
         }  
     }
@@ -77,10 +85,10 @@
     position: absolute;
     content: '';
     right: 5%;
-    bottom: 50px;
+    bottom: 45px;
     width: 90%;
     height: 1px;
-    border-bottom: 1px solid #ededed;
+    border-bottom: 1px solid #d4d4d4;
     
 }
 

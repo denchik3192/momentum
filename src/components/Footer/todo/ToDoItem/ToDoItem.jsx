@@ -20,9 +20,9 @@ const ToDoItem = ({ content, id }) => {
     <div className={s.todoItem}>
       <input type="checkbox" onChange={handleIChekboxChange} id={id} />
       <label htmlFor="">{content}</label>
-      <div className={s.deleteTodoItem} onClick={() => dispatch(deleteToDo())}>
+      {/* <div className={s.deleteTodoItem} onClick={() => dispatch(deleteToDo())}>
         <div className={s.editBlock}></div>
-      </div>
+      </div> */}
       <div className={s.deleteTodoItem} onClick={() => dispatch(deleteToDo())}>
         <div className={s.imageBlock}></div>
       </div>

@@ -6,7 +6,12 @@
     padding: 20px;
 }
 
+.weatherIcon {
+    font-size: 44px;
+    cursor: pointer;
+}
 .weatherIcon:hover {
-    text-decoration: underline;
+    
+    // text-decoration: underline;
     cursor: pointer;
 }
