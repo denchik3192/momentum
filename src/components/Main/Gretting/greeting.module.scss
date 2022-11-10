@@ -3,7 +3,7 @@
 
     input {
         resize: horizontal;
-        min-width: 300px;
+        // min-width: 300px;
         font-size: 54px;
         background: transparent;
         outline: none;
@@ -15,7 +15,7 @@
         }
 
         &:focus {
-            min-width: 350px;
+            color: rgb(179, 179, 179);
         }
     }
 }

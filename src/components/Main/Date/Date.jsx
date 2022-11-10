@@ -1,14 +1,17 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Time from "../Time/Time";
 import s from "./date.module.scss";
 
 export class Date extends Time {
+//   options = { weekday: 'long'};
+// day = new Intl.DateTimeFormat('en-US', options).format(Xmas95)
 
   render() {
     return (
-      <div>
+      <Fragment>
         <div className={s.date}>{this.state.date.toLocaleDateString()}</div>
-      </div>
+       
+      </Fragment>
     );
   }
 }

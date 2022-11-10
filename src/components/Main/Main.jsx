@@ -1,5 +1,5 @@
 import React from "react";
-// import { Date } from "./Date/Date";
+import { Date } from "./Date/Date";
 import Focus from "./Focus/Focus";
 import Greeting from "./Gretting/Greeting";
 import s from "./main.module.scss";
@@ -11,7 +11,7 @@ class Main extends React.Component {
     return (
       <main className={s.main}>
         <Time />
-        {/* <Date /> */}
+        <Date />
         <Greeting />
         <Focus />
       </main>

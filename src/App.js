@@ -9,7 +9,6 @@ function App() {
 
   useEffect(() => {
     if (localStorage.getItem('auth')) {
-      console.log(isAuth);
       setIsAuth(true);
     }
   }, []);

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import s from "./header.module.scss";
 import Player from "./Player/Player";
@@ -17,7 +17,7 @@ const Header = (props) => {
   const toggleWeather = () => {
     weatherActive ? setWeatherActive(false) : setWeatherActive(true);
   }
-
+ 
   return (
     <header className={s.header}>
       <audio src="../../assets/musik/River Flows In You.mp3"/>

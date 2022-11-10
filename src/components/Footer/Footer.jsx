@@ -14,7 +14,6 @@ const Footer = (props) => {
 
   const toggleSettings = () => {
     settingsActive ? setsettingsActive(false) : setsettingsActive(true);
-    console.log(settingsActive);
   };
 
   return (

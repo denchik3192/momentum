@@ -45,6 +45,8 @@ const Weather = ({ active }) => {
   }, []);
   console.log();
 
+ 
+
   return (
     // <div className={s.weather}>
     //   <input type="text" className={s.city} onChange={(e) => setCity(e.target.value)} value={city}/>
