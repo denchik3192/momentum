@@ -5,6 +5,7 @@ import Player from "./Player/Player";
 import Weather from "./Weather/Weather";
 import { WiDaySleet } from "react-icons/wi/";
 import playList from "../../data/playList";
+import Currency from "./Currency/Currency";
 
 const Header = (props) => {
   const [weatherActive, setWeatherActive] = useState(false);
@@ -23,7 +24,8 @@ const Header = (props) => {
       <Player audioElem={audioElem} songs={songs} setSongs={setSongs} isPlaying={isPlaying} setIsPlaying={setIsPlaying}/>
       {/* <Link to="/todopage"> ToDoPage </Link>
       <Link to="/login"> Login </Link> */}
-      <div className={s.weatherIcon} onClick={ toggleWeather }> <WiDaySleet /></div>
+      <Currency/>
+      <div className={s.weatherIcon} onClick={ toggleWeather }> 10<WiDaySleet /></div>
       <Weather active={weatherActive} setActive={setWeatherActive}/>
     </header>
   );
