@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import s from "./footer.module.scss";
 import Settings from "./Settings/Settings";
 import ToDo from "./todo/ToDo";
@@ -18,7 +19,7 @@ const Footer = (props) => {
 
   return (
     <footer className={s.footer}>
-      <div className={s.settingsButton} onClick={toggleSettings}></div>
+      <Link to="settings" className={s.settingsButton} onClick={toggleSettings}></Link>
       <Settings active={settingsActive} setSettingsActive={setSettingsActive}/>
       <div className="qoute">
         Spread love everywhere you go. Let no one ever come to you without

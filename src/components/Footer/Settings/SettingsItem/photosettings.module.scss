@@ -1,0 +1,14 @@
+.photosGreed {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 20px;
+   
+    .photoItem {
+        border-radius: 2px;
+        width: 100px;
+        height: 70px;
+        background: rgb(132, 132, 132);
+    }
+
+}
