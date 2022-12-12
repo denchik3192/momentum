@@ -1,25 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
-// @import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light');
-$text-color: rgba(255, 255, 255, 0.983);
-.app {
-  font-family: 'Source Sans Pro', sans-serif;
-  // font-family: 'Shadows into light';
-  text-align: center;
-  color: $text-color;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  scroll-behavior: smooth;
-}
-body {
-  background-image: url('./../public/bg.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
+// @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+// // @import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light');
+// $text-color: rgba(255, 255, 255, 0.983);
+// .app {
+//   font-family: 'Source Sans Pro', sans-serif;
+//   // font-family: 'Shadows into light';
+//   text-align: center;
+//   color: $text-color;
+//   height: 100vh;
+//   width: 100vw;
+//   display: flex;
+//   justify-content: space-between;
+//   flex-direction: column;
+//   scroll-behavior: smooth;
+// }
+// body {
+//   background-image: url('./../public/bg.jpg');
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   height: 100vh;
   
-}
+// }
 
 // .App-logo {
 //   height: 40vmin;

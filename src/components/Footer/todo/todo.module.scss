@@ -1,4 +1,11 @@
-.todo {
+:root[data-theme="light"] {
+    --todo-color: #efefef;
+  }
+:root[data-theme="dark"] {
+    --todo-color: #313131;
+  }
+  
+  .todo {
     position: absolute;
     z-index: -2;
     padding: 20px;
@@ -7,7 +14,7 @@
     height: auto;
     width: 300px;
     border-radius: 4px;
-    background-color: #fff;
+    background-color: var(--background-color);
     color: rgb(69, 69, 69);
     transform: translateY(+50px);
     opacity: 0;

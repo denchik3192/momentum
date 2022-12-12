@@ -5,8 +5,8 @@ export const todoSlice = createSlice({
     name: 'todo',
     initialState: {
         todos : [
-            { id: 1, content: 'make a call1', checked: true },
-            { id: 2, content: 'make a call2', checked: false },
+            // { id: 1, content: 'make a call1', checked: true },
+            // { id: 2, content: 'make a call2', checked: false },
         ],
     },
     reducers : {

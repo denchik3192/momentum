@@ -1,4 +1,6 @@
 import React from "react";
+import { ThemeContext, themes } from "../../../../context/ThemeContext";
+import FunToggle from "../funToggle/FunToggle";
 import SettingsItem from "./SettingsItem";
 
 function GeneralSettings() {
@@ -18,7 +20,16 @@ function GeneralSettings() {
       <h4>SHOW</h4>
       {settingsElements}
       <h4>Appearance</h4>
-      <SettingsItem name={"theme"}/>
+      <ThemeContext.Consumer>
+        {({ theme, setTheme }) => (
+          <FunToggle onChange={() => {
+            if (theme === themes.light) setTheme(themes.dark)
+            if (theme === themes.dark) setTheme(themes.light)
+          }}  value={theme === themes.dark} name={"theme"}/>
+        )}
+      
+      </ThemeContext.Consumer>
+      
       <SettingsItem name={"font"}/>
       <SettingsItem name={"font"}/>
       <SettingsItem name={"font"}/>
