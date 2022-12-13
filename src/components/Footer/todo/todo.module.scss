@@ -1,9 +1,12 @@
 :root[data-theme="light"] {
-    --todo-color: #efefef;
-  }
+    --backgroung: #fffffffc;
+    --font-color-main: #333333fc;
+}
+
 :root[data-theme="dark"] {
-    --todo-color: #313131;
-  }
+    --backgroung: #333333fc;
+    --font-color-main: #eeeeee;
+}
   
   .todo {
     position: absolute;
@@ -14,8 +17,8 @@
     height: auto;
     width: 300px;
     border-radius: 4px;
-    background-color: var(--background-color);
-    color: rgb(69, 69, 69);
+    background-color: var(--backgroung);
+    color: var(--font-color-main);
     transform: translateY(+50px);
     opacity: 0;
     transition: 0.2s ease-in-out;
@@ -27,13 +30,15 @@
     #toDoInput {
         display: inline-block;
         margin-top: 10px;
+        color: var(--font-color-main);
         width: 100%;
         height: 30px;
         border: none;
         outline: none;
         font-size: 18px;
-        border-bottom: 1px solid rgb(255, 255, 255);
+        border-bottom: 1px solid var(--font-color-main);
         transition: 0.3s ease-in;
+        background: var(--backgroung);
         
         &:hover {
             border-bottom: 1px solid #ededed;
@@ -57,7 +62,8 @@
         width: 12px;
         height: 12px;
         transform: rotate(45deg);
-        background-color: #fff;
+        background-color: var(--backgroung);
+        transition: 0.3S;
     }
     &.active {
         transform: translateY(0px);

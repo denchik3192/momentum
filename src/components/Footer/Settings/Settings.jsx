@@ -27,17 +27,19 @@ const Settings = ({ active, setSettingsActive }) => {
     { id: 7, name: "language" },
   ];
 
-  
-  const res = useEffect(() => {
+  useEffect(() => {
     const elements = document.querySelectorAll(`.${s.navItem}`);
     console.log(elements);
   }, []);
 
-  const toggleActive = (e) => {
+  const toggleNavActive = (e) => {
+    console.log(e.target);
     //todo fix
     const target = e.target.classList;
-    target.contains(s.act) ? target.remove(s.act) : target.add(s.act);
-    console.log(res);
+    target.contains(cn(s.active))
+      ? target.remove(cn(s.active))
+      : target.add(cn(s.active));
+    // console.log(res);
   };
 
   return (
@@ -49,26 +51,49 @@ const Settings = ({ active, setSettingsActive }) => {
         className={active ? cn(s.settings, s.active) : s.settings}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* <FunToggle /> */}
-
         <div className={s.settingsContent}>
-            
-            {/* <Outlet /> */}
+          {/* <Outlet /> */}
           <nav
             ref={ref}
             className={s.settingsNav}
-            onClick={(e) => toggleActive(e)}
           >
-            
             <h3>Settings</h3>
             <ul>
-              <li className={s.navItem}><Link to="settings/general">General</Link></li>
-              <li className={s.navItem}><Link to="settings/todo">ToDo</Link></li>
-              <li className={s.navItem}><Link to="settings/photos">Photos</Link></li>
-              <li className={s.navItem}><Link to="settings/weather">Weather</Link></li>
-              <li className={s.navItem}><Link to="settings/qoutes">Qoutes</Link></li>
-              <li className={s.navItem}><Link to="settings/audio">Audio</Link></li>
-              <li className={s.navItem}><Link to="settings/language">language</Link></li>
+              <li className={s.navItem}>
+                <Link className={cn(s.navLink, s.active)}  onClick={toggleNavActive} to="settings/general">
+                  General
+                </Link>
+              </li>
+              <li className={s.navItem}>
+                <Link className={s.navLink} to="settings/todo">
+                  ToDo
+                </Link>
+              </li>
+              <li className={s.navItem}>
+                <Link className={s.navLink} to="settings/photos">
+                  Photos
+                </Link>
+              </li>
+              <li className={s.navItem}>
+                <Link className={s.navLink} to="settings/weather">
+                  Weather
+                </Link>
+              </li>
+              <li className={s.navItem}>
+                <Link className={s.navLink} to="settings/qoutes">
+                  Qoutes
+                </Link>
+              </li>
+              <li className={s.navItem}>
+                <Link className={s.navLink} to="settings/audio">
+                  Audio
+                </Link>
+              </li>
+              <li className={s.navItem}>
+                <Link className={s.navLink} to="settings/language">
+                  language
+                </Link>
+              </li>
             </ul>
           </nav>
 

@@ -2,6 +2,7 @@ import React from "react";
 import { ThemeContext, themes } from "../../../../context/ThemeContext";
 import FunToggle from "../funToggle/FunToggle";
 import SettingsItem from "./SettingsItem";
+import ReactSwitch from "react-switch";
 
 function GeneralSettings() {
   const settings = [
@@ -17,8 +18,7 @@ function GeneralSettings() {
   ));
   return (
     <div>
-      <h4>SHOW</h4>
-      {settingsElements}
+      
       <h4>Appearance</h4>
       <ThemeContext.Consumer>
         {({ theme, setTheme }) => (
@@ -29,6 +29,9 @@ function GeneralSettings() {
         )}
       
       </ThemeContext.Consumer>
+      <h4>SHOW</h4>
+      {settingsElements}
+      
       
       <SettingsItem name={"font"}/>
       <SettingsItem name={"font"}/>

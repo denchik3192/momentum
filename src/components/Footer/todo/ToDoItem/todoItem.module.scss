@@ -1,3 +1,12 @@
+:root[data-theme="light"] {
+    --backgroung: #fffffffc;
+    --font-color-main: #333333fc;
+}
+
+:root[data-theme="dark"] {
+    --backgroung: #333333fc;
+    --font-color-main: #eeeeee;
+}
 .todoItem {
     display: flex;
     align-items: center;
@@ -53,7 +62,8 @@
 
     &:hover {
         // font-weight: bold;
-        color: rgb(43, 43, 43);
+        text-decoration: dashed;
+        
         transition: 0.3s;
         .deleteTodoItem {
             display: flex;
@@ -63,14 +73,12 @@
             height: 30px;
             cursor: pointer;
             border: none;
-            // transition: 0.2s ease-in-out;
     
             .imageBlock {
                 background-image: url('../../../../assets/del-icon.svg');
                 background-position: center;
                 background-repeat: no-repeat;
                 scale: (1);
-                // transition: 0.2s ease-in-out;
             }
     
             .editBlock {

@@ -3,7 +3,7 @@ import s from "./funToggle.module.scss";
 
 const FunToggle = ({ value, onChange, name}) => {
   return (
-    <div>
+    <div className={s.funToggle}>
       <input
         id="toggle"
         className={s.toggle}
@@ -14,8 +14,8 @@ const FunToggle = ({ value, onChange, name}) => {
         value="on"
       />
       <label for="toggle" className={s.slot}>
-        <span className={s.slot__label}>OFF</span>
-        <span className={s.slot__label}>ON</span>
+        <span className={s.slot__label}>Light</span>
+        <span className={s.slot__label}>Dark</span>
       </label>
       <div className={s.curtain}></div>
     </div>

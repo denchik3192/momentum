@@ -1,11 +1,21 @@
+:root[data-theme="light"] {
+    --backgroung: #fffffffc;
+    --backgroung2: hsla(0, 0%, 0%, 0.12);
+    --font-color-main: #333333fc;
+}
 
+:root[data-theme="dark"] {
+    --backgroung: #333333fc;
+    --backgroung2: hsla(0, 0%, 100%, 0.12);
+    --font-color-main: #eeeeee;
+}
 .settingsItem {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 40px;
     padding: 2.5px;
-    border-top: 1px solid hsla(0, 0%, 100%, 0.12);
+    border-top: 1px solid var(--backgroung2);
     cursor: pointer;
     & span {
         text-transform: capitalize;

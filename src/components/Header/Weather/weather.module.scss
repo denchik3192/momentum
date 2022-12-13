@@ -1,4 +1,13 @@
-   .weatherWrapper {
+:root[data-theme="light"] {
+    --backgroung: #fffffffc;
+    --font-color-main: #333333fc;
+}
+
+:root[data-theme="dark"] {
+    --backgroung: #333333fc;
+    --font-color-main: #eeeeee;
+}
+.weatherWrapper {
     position: absolute;
     height: 100vh;
     width: 100vw;
@@ -19,7 +28,7 @@
         top: 70px;
         width: 440px;
         height: 220px;
-        background: #fff;
+        background: var(--backgroung);
         border-radius: 4px;
         opacity: 0;
         transition: 0.15s ease-in-out;
@@ -28,7 +37,7 @@
     
         .weatherSection {
             padding: 21px 21px 18px;
-            color: rgb(84, 84, 84);
+            color: var(--font-color-main);
     
             .header {
                 display: flex;
@@ -42,7 +51,7 @@
     
                     .location {
                         margin: 0;
-                        color: rgb(72, 72, 72);
+                        color: var(--font-color-main)
                     }
     
                     .weatherDescription {
@@ -92,7 +101,7 @@
         width: 12px;
         height: 12px;
         transform: rotate(45deg);
-        background-color: #fff;
+        background-color: var(--backgroung);
     }
     
     .weather::after {
