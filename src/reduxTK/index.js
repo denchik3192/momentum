@@ -1,11 +1,11 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import todoSlice from './todoSlice';
 // import toolkitReducer from './toolkitReducer';
-import toolkitSlice from './toolkitSlice';
+import mainSlice from './mainSlice';
 
 
 const rootReducer = combineReducers({
-    toolkit: toolkitSlice,
+    toolkit: mainSlice,
     todo: todoSlice,
 })
 

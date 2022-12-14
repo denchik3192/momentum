@@ -14,7 +14,6 @@ export default createReducer(initialState, {
     [decrement]: function(state) {
         state.count -= 1;
     },
-
 })
 
 console.log(decrement);

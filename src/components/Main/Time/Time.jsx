@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { MdHourglassBottom, MdMoreHoriz } from "react-icons/md/index";
 import s from "./time.module.scss";
 
 export class Time extends Component {
@@ -23,13 +24,15 @@ export class Time extends Component {
 
   render() {
     return (
-      <div>
+      <div className={s.timeWrapper}>
+        <MdHourglassBottom />
         <div className={s.time}>
           {this.state.date.toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",
           })}
         </div>
+        <MdMoreHoriz />
       </div>
     );
   }

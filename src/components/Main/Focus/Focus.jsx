@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeUserFocus } from "../../../reduxTK/toolkitSlice";
+import { changeUserFocus } from "../../../reduxTK/mainSlice";
 import s from './focus.module.scss'
 
 function Focus() {

@@ -13,9 +13,9 @@ const FunToggle = ({ value, onChange, name}) => {
         name="toggle"
         value="on"
       />
-      <label for="toggle" className={s.slot}>
-        <span className={s.slot__label}>Light</span>
+      <label htmlFor="toggle" className={s.slot}>
         <span className={s.slot__label}>Dark</span>
+        <span className={s.slot__label}>Light</span>
       </label>
       <div className={s.curtain}></div>
     </div>
