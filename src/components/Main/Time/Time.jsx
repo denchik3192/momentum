@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { MdHourglassBottom, MdMoreHoriz } from "react-icons/md/index";
 import s from "./time.module.scss";
+import Timer from "./Timer/Timer";
 
 export class Time extends Component {
   constructor(props) {
     super(props);
     this.state = { date: new Date() };
+    this.timerActive = false;
+    // this.setTimerActive = this.setTimerActive().bind(this)
   }
 
   componentDidMount() {
@@ -22,9 +25,22 @@ export class Time extends Component {
     });
   }
 
+  toggleTimer() {
+    this.setState(
+      !this.timerActive
+    )
+  }
+
   render() {
     return (
       <div className={s.timeWrapper}>
+        <Timer
+          expiryTimestamp={this.state.date.setSeconds(
+            this.state.date.getSeconds() + 600
+          )}
+          timerActive={this.timerActive}
+          // setTimerActive={this.timerActive}
+        />
         <MdHourglassBottom />
         <div className={s.time}>
           {this.state.date.toLocaleTimeString([], {

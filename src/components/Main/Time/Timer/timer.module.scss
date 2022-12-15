@@ -1,0 +1,47 @@
+:root[data-theme="light"] {
+    --backgroung: #fffffffc;
+    --backgroung2: hsla(0, 0%, 100%, 0.12);
+    --font-color-main: #333333fc;
+}
+
+:root[data-theme="dark"] {
+    --backgroung: #333333fc;
+    --backgroung2: hsla(0, 0%, 100%, 0.12);
+    --font-color-main: #eeeeee;
+}
+
+.timer {
+    // position: absolute;
+    // display: none;
+    // top: 0;
+    // left: 8%;
+    // border-radius: 4px;
+    width: 300px;
+    height: 100%;
+    // color: var(--font-color-main);
+    // opacity: 0.9;
+    // background: var(--backgroung);
+
+    z-index: -2;
+        padding: 20px 5px 20px 20px;
+        left: 10px;
+        bottom: 80px;
+        border-radius: 5px;
+        background-color: var(--backgroung);
+        color: var(--font-color-main);
+        transform: translateY(+50px);
+        opacity: 0;
+        transition: 0.2s ease-in-out;
+        border-radius: 4px;
+}
+
+.timer.active {
+    transform: translateY(0px);
+            z-index: 1;
+            opacity: 1;
+            transition: 0.2s ease-in-out;
+}
+
+
+
+       

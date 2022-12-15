@@ -1,17 +1,18 @@
 .timeWrapper {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
 
     svg {
-        display: none;
+        visibility: hidden;
+        // display: none;
         position: relative;
         height: 2em;
         width: 2em;
         cursor: pointer;
         fill: rgba(255, 255, 255, 0.672);
-        transition: 0.2s;
 
         &:after {
             position: absolute;
@@ -23,20 +24,22 @@
             // background: #000;
             // z-index: 100;
         }
-       
+
     }
 
     .time {
         cursor: default;
         font-size: 1050%;
-        
+
         padding: 0px 20px 0 20px;
     }
+
     &:hover {
-        transition: 0.8s;
+
+        // transition: 0.3s;
         svg {
+            visibility: visible;
             display: block;
-            
         }
     }
 }
