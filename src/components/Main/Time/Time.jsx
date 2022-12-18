@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import React, { Component } from "react";
 import { MdHourglassBottom, MdMoreHoriz } from "react-icons/md/index";
 import s from "./time.module.scss";
@@ -6,9 +7,13 @@ import Timer from "./Timer/Timer";
 export class Time extends Component {
   constructor(props) {
     super(props);
-    this.state = { date: new Date() };
-    this.timerActive = false;
-    // this.setTimerActive = this.setTimerActive().bind(this)
+    this.state = {
+      date: new Date(),
+      timerActive: false,
+      moreActive: false,
+    };
+    this.toggleTimerActive = this.toggleTimerActive.bind(this);
+    this.toggleMoreActive = this.toggleMoreActive.bind(this);
   }
 
   componentDidMount() {
@@ -25,30 +30,47 @@ export class Time extends Component {
     });
   }
 
-  toggleTimer() {
-    this.setState(
-      !this.timerActive
-    )
+  toggleTimerActive() {
+    this.state.timerActive === true
+      ? this.setState({ timerActive: false })
+      : this.setState({ timerActive: true });
+  }
+
+  toggleMoreActive() {
+    this.state.moreActive === true
+      ? this.setState({ moreActive: false })
+      : this.setState({ moreActive: true });
   }
 
   render() {
     return (
       <div className={s.timeWrapper}>
-        <Timer
-          expiryTimestamp={this.state.date.setSeconds(
-            this.state.date.getSeconds() + 600
-          )}
-          timerActive={this.timerActive}
-          // setTimerActive={this.timerActive}
+        <Timer timerActive={this.state.timerActive} more={this.moreActive} />
+
+        <MdHourglassBottom
+          className={
+            this.state.timerActive === true
+              ? classNames(s.hourglass, s.active)
+              : s.hourglass
+          }
+          onClick={this.toggleTimerActive}
         />
-        <MdHourglassBottom />
+
         <div className={s.time}>
           {this.state.date.toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",
           })}
         </div>
-        <MdMoreHoriz />
+
+        <MdMoreHoriz
+          className={
+            this.state.moreActive === true
+              ? classNames(s.more, s.active)
+              : s.more
+          }
+          onClick={this.toggleMoreActive}
+        />
       </div>
     );
   }

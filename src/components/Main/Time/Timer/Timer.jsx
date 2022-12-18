@@ -1,20 +1,23 @@
+import {
+  Pause,
+  PlayArrow,
+  Restore,
+} from "@material-ui/icons";
 import classNames from "classnames";
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
-import { useState } from "react";
 import { useTimer } from "react-timer-hook";
 import s from "./timer.module.scss";
 
-const Timer = ({ expiryTimestamp, timerActive }) => {
-  // console.log(time);
-  //try react-timer-hook?
-  // const [days, setDays] = useState(10);
-  // const [hours, setHours] = useState(0);
-  // const [minutes, setMinutes] = useState(0);
-  // const [seconds, setSeconds] = useState(0);
-  const [countdown, setCountdown] = useState(null);
+const Timer = ({ timerActive }) => {
+  const [timerValue, setTimerValue] = useState("600");
+  const date = new Date();
+  let expiryTimestamp = date.setSeconds(
+    //todo fix timer touble
+    date.getSeconds() + timerValue
+  );
 
-  const {
+  let {
     seconds,
     minutes,
     hours,
@@ -26,22 +29,58 @@ const Timer = ({ expiryTimestamp, timerActive }) => {
     restart,
   } = useTimer({
     expiryTimestamp,
+    autoStart: false,
     onExpire: () => console.warn("onExpire called"),
   });
 
+  useEffect(() => {
+    minutes = timerValue
+  }, [timerValue])
+
+  const chengeSelect = (event) => {
+    setTimerValue(event.target.value);
+  };
+
   return (
     <div className={timerActive ? classNames(s.timer, s.active) : s.timer}>
-      <h3>Timer</h3>
-      <div >
-        <div style={{ fontSize: "50px" }}>
-          <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:
-          <span>{seconds}</span>
+      <h3>
+        Timer
+        <select
+        className={s.tmerMinutes}
+        // value={timerValue}
+        onChange={chengeSelect}
+      >
+        <option value="1">1</option>
+        <option value="5">5</option>
+        <option  value="10" selected>10</option>
+        <option value="15">15</option>
+        <option value="30">30</option>
+        <option value="60">60</option>
+      </select>
+        {/* <ArrowDropDownOutlined  className={s.timerArrow}/> */}
+      </h3>
+      <div>
+        <div className={s.countdown}>
+          -<span>{hours > 9 ? hours : "0" + hours}</span>:
+          <span>{minutes > 9 ? minutes : "0" + minutes}</span>:
+          <span>{seconds > 9 ? seconds : "0" + seconds}</span>
+          -
         </div>
         {/* <p>{isRunning ? "Running" : "Not running"}</p> */}
-        <button onClick={start}>Start</button>
-        <button onClick={pause}>Pause</button>
-        <button onClick={resume}>Resume</button>
-        <button
+        {/* <button onClick={start}>Start</button> */}
+        <PlayArrow onClick={start}  className={s.timerIcons}/>
+        <Pause onClick={pause} className={s.timerIcons}/>
+        <Restore className={s.timerIcons}
+          onClick={() => {
+            const time = new Date();
+            time.setSeconds(time.getSeconds() + 600);
+            restart(time);
+          }}
+        />
+
+        {/* <button onClick={pause}>Pause</button>
+        <button onClick={resume}>Resume</button> */}
+        {/* <button
           onClick={() => {
             // Restarts to 5 minutes timer
             const time = new Date();
@@ -50,10 +89,8 @@ const Timer = ({ expiryTimestamp, timerActive }) => {
           }}
         >
           Restart
-        </button>
-      </div>
-      <input type="datetime-local" name="" id="" />
-      <div className={s.countdown}>{expiryTimestamp}</div>
+        </button> */}
+      </div> 
     </div>
   );
 };

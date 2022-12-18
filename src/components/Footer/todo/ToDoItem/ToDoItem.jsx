@@ -1,3 +1,4 @@
+import { Check, Delete, DeleteForeverOutlined, Edit, EditAttributesOutlined, EditAttributesTwoTone, EditOutlined } from "@material-ui/icons";
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -34,6 +35,7 @@ const ToDoItem = ({ content, id, checked }) => {
         id={id}
         checked={checked}
       />
+      {/* <Check style={{ position: "absolute"}} /> */}
       {editToDo ? (
         <input
         className={s.edittedInput}
@@ -48,15 +50,15 @@ const ToDoItem = ({ content, id, checked }) => {
         <label htmlFor="">{content}</label>
       )}
       {/* <label htmlFor="">{content}</label> */}
-      <div className={s.deleteTodoItem} onClick={toggleEditMode}>
+      <EditOutlined className={s.deleteTodoItem} onClick={toggleEditMode}>
         <div className={s.editBlock}></div>
-      </div>
-      <div
+      </EditOutlined>
+      <DeleteForeverOutlined
         className={s.deleteTodoItem}
         onClick={() => dispatch(deleteToDo(id))}
       >
         <div className={s.imageBlock}></div>
-      </div>
+      </DeleteForeverOutlined>
     </div>
   );
 };

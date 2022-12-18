@@ -1,5 +1,7 @@
+import { SettingsApplications, SettingsApplicationsOutlined, SettingsApplicationsSharp, SettingsBrightness, SettingsPhone, SettingsSystemDaydream } from "@material-ui/icons";
 import React from "react";
 import { useState } from "react";
+import { MdOutlineSettingsApplications } from "react-icons/md";
 import { Link } from "react-router-dom";
 import s from "./footer.module.scss";
 import Settings from "./Settings/Settings";
@@ -19,17 +21,23 @@ const Footer = (props) => {
 
   return (
     <footer className={s.footer}>
-      <Link to="settings" className={s.settingsButton} onClick={toggleSettings}></Link>
+      <Link
+        to="settings"
+        className={s.settingsButton}
+        onClick={toggleSettings}
+      ></Link>
+
+      
       <Settings active={settingsActive} setSettingsActive={setSettingsActive}/>
-      <div className="qoute">
-        Spread love everywhere you go. Let no one ever come to you without
-        leaving happier.
+      <div className={s.qoute}>
+        "Spread love everywhere you go. Let no one ever come to you without
+        leaving happier.""
       </div>
       <div className={s.todo} onClick={toggleToDo}>
         ToDo
         {/* <ToDo active={todoActive} onClick={toggleToDo}/> */}
       </div>
-      <ToDo active={todoActive} onClick={toggleToDo}/>
+      <ToDo active={todoActive} onClick={toggleToDo} />
     </footer>
   );
 };
