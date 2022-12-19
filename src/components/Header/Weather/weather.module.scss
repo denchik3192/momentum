@@ -40,11 +40,41 @@
             color: var(--font-color-main);
     
             .header {
+                position: relative;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                .editIcon {
+                    position: absolute;
+                    font-size: 20px;
+                    top: 15px;
+                    left: 130px;
+                    cursor: pointer;
+                    transform: translateX(-10px);
+                    transition: 0.2s ease-in;
+                    visibility: hidden;
+                }
+                &:hover {
+                    cursor: pointer;
+                    .editIcon {
+                        position: absolute;
+                        font-size: 20px;
+                        top: 15px;
+                        left: 130px;
+                        cursor: pointer;
+                        transform: translateX(0px);
+                        transition: 0.2s ease-in-out;
+                        visibility: visible;
+                    }
+                    .editIcon:hover {
+                        fill: rgb(168, 168, 168);
+                    }
+                   
+                }
+                
     
                 .loacationWrapper {
+                    
                     display: flex;
                     flex-direction: column;
                     align-items: start;
@@ -53,6 +83,7 @@
                         margin: 0;
                         color: var(--font-color-main)
                     }
+                    
     
                     .weatherDescription {
                         // font-style: italic;
