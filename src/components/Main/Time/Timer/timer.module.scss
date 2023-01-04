@@ -31,10 +31,10 @@
     }
     .tmerMinutes{
         position: absolute;
-        top: 20px;
+        top: 35px;
         right: 20px;
         cursor: pointer;
-
+        font-size: 18px;
         background: transparent;
         outline: none;
         border: none;
@@ -48,6 +48,12 @@
         margin-top: 20px;
         width: 1.5em;
         height: 1.5em;
+        cursor: pointer;
+        &.play.active,
+        &.pause.active {
+            color: green;
+        }
+        
     }
     &.active {
         transform: translateZ(0px);
