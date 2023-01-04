@@ -1,42 +1,64 @@
 .timeWrapper {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
 
-    svg {
-        display: none;
-        position: relative;
+    .hourglass,
+    .more {
+        visibility: hidden;
+        // position: relative;
         height: 2em;
         width: 2em;
         cursor: pointer;
         fill: rgba(255, 255, 255, 0.672);
-        transition: 0.2s;
+        transform: rotate(0deg);
+        transition: 0.2s ease-in-out;
 
-        &:after {
-            position: absolute;
-            content: '';
-            width: 100px;
-            height: 100px;
-            top: 0;
-            left: 0;
-            // background: #000;
-            // z-index: 100;
+        &.active {
+            visibility: visible;
+            transform: rotate(180deg);
+            // transition: 0.2s ease-in-out;
+            fill: #fff;
         }
-       
     }
 
     .time {
+        position: relative;
         cursor: default;
         font-size: 1050%;
-        
         padding: 0px 20px 0 20px;
+        // &::after,
+        // &::before {
+        //     position: absolute;
+
+        //     content:'';
+        //     width: 35px;
+        //     height: 35px;
+        //     background: rgba(187, 187, 187, 0.565);
+        //     border-radius: 50px;
+        // }
+        // &::before {
+        //     left:  -33px;
+        //     top: 87px;
+
+        // }
+        // &::after {
+        //     top: 87px;
+        //     right:  -33px;
+        // }
     }
+
     &:hover {
-        transition: 0.8s;
-        svg {
+
+        // transition: 0.3s;
+        .hourglass,
+        .more {
+            visibility: visible;
             display: block;
-            
         }
     }
+
+
 }

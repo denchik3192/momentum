@@ -13,32 +13,57 @@
     justify-content: space-between;
     text-transform: capitalize;
     transition: 0.3;
+
+    // input[type="checkbox"] {
+    //     position: absolute;
+    //     z-index: -10;
+    //     opacity: 0;
+    // }
+
+    // label::before {
+    //     content: '';
+    //     display: inline-block;
+    //     width: 1em;
+    //     height: 1em;
+    //     flex-shrink: 0;
+    //     flex-grow: 0;
+    //     border: 1px solid #adb5bd;
+    //     border-radius: 0.25em;
+    //     margin-right: 0.5em;
+    //     background-repeat: no-repeat;
+    //     background-position: center center;
+    //     background-size: 50% 50%;
+    // }
     input:checked ~ label {
         text-decoration: line-through;
         transition: 1s;
     }
     .edittedInput {
         text-transform: capitalize;
-        // font-size: 16px;
+        background: transparent;
+        color: var(--font-color-main);
+        font-size: 20px;
+        width: 70%;
         height: 20px;
         border: none;
-        border-bottom: 1px solid rgb(226, 226, 226);
+        border-bottom: 1px solid var(--font-color-main);;
         outline: none;
+        text-align: center;
 
     }
     .deleteTodoItem {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 30px;
-        height: 30px;
+        width: 23px;
+        height: 23px;
         cursor: pointer;
         border: none;
 
         .imageBlock {
             margin: 0 auto;
-            width: 20px;
-            height: 20px;
+            // width: 25px;
+            // height: 25px;
             background-position: center;
             background-repeat: no-repeat;
             scale: (0);
@@ -46,8 +71,8 @@
 
         .editBlock {
             margin: 0 auto;
-            width: 20px;
-            height: 20px;
+            // width: 25px;
+            // height: 25px;
             background-position: center;
             background-repeat: no-repeat;
             scale: (0);
@@ -55,6 +80,7 @@
     }
 
     label {
+        font-size: 18px;
         padding-left: 5px;
         display: block;
         margin-right: auto;
@@ -66,11 +92,11 @@
         
         transition: 0.3s;
         .deleteTodoItem {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 30px;
-            height: 30px;
+            // display: flex;
+            // align-items: center;
+            // justify-content: center;
+            // width: 30px;
+            // height: 30px;
             cursor: pointer;
             border: none;
     
@@ -86,14 +112,13 @@
                 background-position: center;
                 background-repeat: no-repeat;
                 scale: (1);
-                // transition: 0.2s ease-in-out;
+                transition: 0.2s ease-in-out;
+                transform: translateZ(45);
             }
         }
     
         .deleteTodoItem:hover {
-            background: rgb(225, 225, 225);
-            border-radius: 50%;
-            transition: 0.3s ease-in;
+            fill: rgb(167, 167, 167);
         }
     }
 }

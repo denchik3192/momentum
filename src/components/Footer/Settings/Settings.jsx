@@ -4,7 +4,7 @@ import cn from "classnames";
 import FunToggle from "./funToggle/FunToggle";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Link, Outlet, Route, Routes, Switch } from "react-router-dom";
+import { Link, Navigate, Outlet, redirect, Route, Routes, Switch } from "react-router-dom";
 import GeneralSettings from "./SettingsItem/GeneralSettings";
 import PhotoSettings from "./SettingsItem/PhotoSettings";
 import ToDoSettings from "./SettingsItem/ToDoSettings";
@@ -12,6 +12,8 @@ import WeatherSettings from "./SettingsItem/WeatherSettings";
 import AudioSettings from "./SettingsItem/AudioSettings";
 import LanguageSettings from "./SettingsItem/LanguageSettings";
 import QuotesSettings from "./SettingsItem/QuotesSettings";
+import { AccountBalanceOutlined, AccountBox, AccountCircle, Person, PersonAdd, PersonOutline } from "@material-ui/icons";
+import { MdSwitchAccount } from "react-icons/md";
 
 const Settings = ({ active, setSettingsActive }) => {
   const ref = useRef(null);
@@ -95,6 +97,7 @@ const Settings = ({ active, setSettingsActive }) => {
                 </Link>
               </li>
             </ul>
+            <AccountCircle/>
           </nav>
 
           <div className={s.settingsView}>

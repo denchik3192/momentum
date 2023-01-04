@@ -1,0 +1,65 @@
+:root[data-theme="light"] {
+    --backgroung: #fffffffc;
+    --backgroung2: hsla(0, 0%, 100%, 0.12);
+    --font-color-main: #333333fc;
+}
+
+:root[data-theme="dark"] {
+    --backgroung: #333333fc;
+    --backgroung2: hsla(0, 0%, 100%, 0.12);
+    --font-color-main: #eeeeee;
+}
+
+.timer {
+    position: absolute;
+    padding: 20px;
+    width: 200px;
+    height: 180px;
+    // display: none;
+    // z-index: -2;
+    top: 0; 
+    margin-right: 850px;
+    border-radius: 5px;
+    background-color: var(--backgroung);
+    color: var(--font-color-main);
+    transform: translateZ(+50px);
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+    border-radius: 4px;
+    .countdown {
+        font-size: 40px;
+    }
+    .tmerMinutes{
+        position: absolute;
+        top: 35px;
+        right: 20px;
+        cursor: pointer;
+        font-size: 18px;
+        background: transparent;
+        outline: none;
+        border: none;
+        color: var(--font-color-main);
+        option {
+            color: var(--backgroung);
+            // text-align: center;
+        }
+    }
+    .timerIcons {
+        margin-top: 20px;
+        width: 1.5em;
+        height: 1.5em;
+        cursor: pointer;
+        &.play.active,
+        &.pause.active {
+            color: green;
+        }
+        
+    }
+    &.active {
+        transform: translateZ(0px);
+        z-index: 1;
+        opacity: 0.9;
+        transition: 0.2s;
+    }
+}
+

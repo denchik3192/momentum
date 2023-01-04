@@ -6,14 +6,16 @@ import Weather from "./Weather/Weather";
 import { WiDaySleet } from "react-icons/wi/";
 import playList from "../../data/playList";
 import Currency from "./Currency/Currency";
+import { useSelector } from "react-redux";
 
 const Header = (props) => {
   const [weatherActive, setWeatherActive] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentSong, setCurrentSong] = useState(playList[0]);
   const [songs, setSongs] = useState(playList);
-  
+  const weatherData = useSelector((state) => state.weather);
   const audioElem = useRef();
+
 
   const toggleWeather = () => {
     weatherActive ? setWeatherActive(false) : setWeatherActive(true);
@@ -25,7 +27,7 @@ const Header = (props) => {
       {/* <Link to="/todopage"> ToDoPage </Link>
       <Link to="/login"> Login </Link> */}
       <Currency/>
-      <div className={s.weatherIcon} onClick={ toggleWeather }> 10<WiDaySleet /></div>
+      <div className={s.weatherIcon} onClick={ toggleWeather }> {weatherData.temperature}<WiDaySleet /></div>
       <Weather active={weatherActive} setActive={setWeatherActive}/>
     </header>
   );

@@ -5,10 +5,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    .qoute {
+        font-size: 20px;
+    }
     .settingsButton {
         width: 35px;
         height: 35px;
-        background-image: url('../../assets/settings.png');
+        background-image: url('../../assets/settings_FILL.svg');
+        color: aliceblue;
         background-size: 100%;
         cursor: pointer;
         background-repeat: no-repeat;
@@ -29,4 +33,5 @@
         color: rgb(214, 214, 214);
         transition: 0.2s;
     }
+    
 }

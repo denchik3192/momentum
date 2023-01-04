@@ -2,49 +2,31 @@ import React, { useEffect, useState } from "react";
 import s from "./weather.module.scss";
 import cn from "classnames";
 import { WiDaySleet } from "react-icons/wi";
-const axios = require("axios").default;
+import { changeLocation, fetchWether } from "../../../reduxTK/weatherSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { EditOutlined } from "@material-ui/icons";
+import { MdMoreHoriz } from "react-icons/md";
 
 const Weather = ({ active, setActive }) => {
-  const [weather, setWeather] = useState(0);
-  const [description, setDescription] = useState("");
-  const [wind, setWind] = useState(0);
-  const [pressure, setPressure] = useState(0);
-  const [humidity, setHumidity] = useState(0);
-  const [location, setLocation] = useState("");
+  const [lacationEdit, setLocationEdit] = useState(false);
 
-  useEffect(() => {
-    async function fetchData() {
-      //ToDo make api file for fetching data
-      try {
-        const cit = "Mogilev";
-        const res = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${cit}&lang=en&appid=98ecdb9364988a9953be656dac71e2db&units=metric`
-        );
-        const data = res.data;
-        const temperature = `${Math.floor(data.main.temp)}°`;
-        const description = data.weather[0].description;
-        const humidity = `${data.main.humidity}%`;
-        const pressure = data.main.pressure;
-        const wind = data.wind.speed;
-        const location = data.name;
-        setWeather(temperature);
-        setDescription(description);
-        setHumidity(humidity);
-        setWind(wind);
-        setLocation(location);
-        setPressure(pressure)
-      } catch (err) {
-        setDescription(`Error! city not found for'!`);
-        setWeather(0);
-        setHumidity(0);
-        setWind(0);
-        setPressure(0)
-      }
-    }
-    fetchData();
-  }, []);
-  console.log();
+  const dispatch = useDispatch();
+  const weatherData = useSelector((state) => state.weather);
+  const [lacation, setLocation] = useState(weatherData.lacation); //fix 
 
+  useEffect(()=> {
+    dispatch(fetchWether());
+  }, [dispatch])
+
+  const toggleLocationEdit = () => {
+    console.log(lacationEdit);
+    setLocationEdit(!lacationEdit)
+    dispatch(fetchWether(lacation))
+  }
+
+  const handleLocationInput = (e) => {
+    setLocation(e.currentTarget.value);
+  }
  
 
   return (
@@ -54,25 +36,28 @@ const Weather = ({ active, setActive }) => {
       <section className={s.weatherSection}>
         <div className={s.header}>
           <div className={s.loacationWrapper}>
-            <h3 className={s.location}>{location}</h3>
-            <span className={s.weatherDescription}>{description}</span>
+            {lacationEdit ?  <input type="text" className={s.inputLocation} value={lacation} onChange={handleLocationInput} /> : <h3 className={s.location}>{weatherData.location}</h3>}
+            
+            <EditOutlined className={s.editIcon} onClick={toggleLocationEdit}/>
+            <span className={s.weatherDescription}>{weatherData.description}</span>
           </div>
-          <div className={s.more}>000</div>
+          <div className={s.more}><MdMoreHoriz/></div>
         </div>
 
         <div className={s.descriptionContainer}>
-          <span className={s.temperature}>{weather}</span>
+          <span className={s.temperature}>{Math.round(weatherData.temperature)}</span>
           <div className={s.weatherIcon}>
           <WiDaySleet />
           </div>
           <div className={s.additionalDescr}>
-            <div className={s.wind}>Wind: <b>{wind}m/s</b></div>
-            <div className={s.humidity}>Humidity:  <b>{humidity}</b></div>
-            <div className={s.humidity}>Pressure:  <b>{pressure}</b></div>
+            <div className={s.wind}>Wind: <b>{weatherData.wind}m/s</b></div>
+            <div className={s.humidity}>Humidity:  <b>{weatherData.humidity}</b></div>
+            <div className={s.humidity}>Pressure:  <b>{weatherData.pressure}</b></div>
           </div>
         </div>
         {/* <div className={s.weatherError}></div> */}
       </section>
+      {weatherData.error}
     </div>
     </div>
   );
