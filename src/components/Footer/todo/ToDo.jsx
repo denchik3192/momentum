@@ -4,13 +4,9 @@ import cn from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 import ToDoItem from "./ToDoItem/ToDoItem";
 import { useState } from "react";
-import { useKeyPress } from "./useKeyPres";
-import { useEffect } from "react";
-import { useRef } from "react";
 import { addToDo, deleteToDo } from "../../../reduxTK/todoSlice";
 
 const ToDo = ({ active }) => {
-  // const ref = useRef('Enter');
   const [newToDo, setNewToDo] = useState("");
   const [editToDo, setEditToDo] = useState(false);
   const todos = useSelector((state) => state.todo);
@@ -65,4 +61,4 @@ const ToDo = ({ active }) => {
   );
 };
 
-export default ToDo;
+export default React.memo(ToDo);

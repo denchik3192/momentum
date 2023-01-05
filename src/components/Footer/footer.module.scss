@@ -6,7 +6,24 @@
     align-items: center;
     justify-content: space-between;
     .qoute {
-        font-size: 20px;
+        max-width: 70%;
+        // height: 50px;
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: 0.5s;
+        .quoteButton {
+            font-size: 26px;
+            width: 100px;
+            cursor: pointer;
+            transition: 0.3s;
+            color: rgba(255, 255, 255, 0.6);
+            &:hover{
+                color: rgb(255, 255, 255);
+                transition: 0.3s;
+            }
+        }
     }
     .settingsButton {
         width: 35px;

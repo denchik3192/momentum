@@ -45,7 +45,7 @@ const Weather = ({ active, setActive }) => {
         </div>
 
         <div className={s.descriptionContainer}>
-          <span className={s.temperature}>{Math.round(weatherData.temperature)}</span>
+          <span className={s.temperature}>{weatherData.temperature}</span>
           <div className={s.weatherIcon}>
           <WiDaySleet />
           </div>

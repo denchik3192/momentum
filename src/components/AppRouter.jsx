@@ -12,7 +12,7 @@ function AppRouter() {
 
   return isAuth ? (
     <Routes>
-      <Route path="/momentum" element={<Momentum />}>
+      <Route path="/momentum/*" element={<Momentum />}>
         <Route path="settings//*" element={<Settings />} />
       </Route>
       <Route path="/todopage" element={<ToDoPage />} />

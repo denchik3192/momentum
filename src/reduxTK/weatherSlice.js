@@ -4,8 +4,6 @@ import { fetchData } from "../API/API";
 
 export const fetchWether = createAsyncThunk(
   "weather/fetchWether",
-  
-
   async function (url, { rejectWithValue, dispatch }) {
     try {
       const response = await fetchData(url);
@@ -44,13 +42,12 @@ const weatherSlise = createSlice({
     },
     [fetchWether.fulfilled]: (state, action) => {
       state.status = "resolved";
-      state.temperature = action.payload.main.temp;
+      state.temperature = Math.round(action.payload.main.temp);//?
       state.wind = action.payload.wind.speed;
       state.humidity = action.payload.main.humidity;
       state.pressure = action.payload.main.pressure;
       state.description = action.payload.weather[0].description;
       state.location = action.payload.name;
-      console.log(action.payload);
     },
     [fetchWether.rejected]: (state, action) => {
         state.status = 'rejected';

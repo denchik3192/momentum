@@ -9,13 +9,6 @@ const instnce = axios.create({
     withCredentials: true
 })
 
-
-//   const [weather, setWeather] = useState(0);
-//   const [description, setDescription] = useState("");
-//   const [wind, setWind] = useState(0);
-//   const [humidity, setHumidity] = useState(0);
-//   const [location, setLocation] = useState("");
-
     export async function fetchData(url) { //ToDo make api file for fetching data
       try {
               const cit = `${url}` === 'undefined' ? 'Mogilev' : `${url}`;
@@ -25,9 +18,11 @@ const instnce = axios.create({
               const data = res.data;
               return data;
               }catch (err){
-console.log(err);
+                console.log(err);
               }
     }
+
+    
 
 
   

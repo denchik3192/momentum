@@ -29,20 +29,20 @@ const Settings = ({ active, setSettingsActive }) => {
     { id: 7, name: "language" },
   ];
 
-  useEffect(() => {
-    const elements = document.querySelectorAll(`.${s.navItem}`);
-    console.log(elements);
-  }, []);
+  // useEffect(() => {
+  //   const elements = document.querySelectorAll(`.${s.navItem}`);
+  //   console.log(elements);
+  // }, []);
 
-  const toggleNavActive = (e) => {
-    console.log(e.target);
-    //todo fix
-    const target = e.target.classList;
-    target.contains(cn(s.active))
-      ? target.remove(cn(s.active))
-      : target.add(cn(s.active));
-    // console.log(res);
-  };
+  // const toggleNavActive = (e) => {
+  //   console.log(e.target);
+  //   //todo fix
+  //   const target = e.target.classList;
+  //   target.contains(cn(s.active))
+  //     ? target.remove(cn(s.active))
+  //     : target.add(cn(s.active));
+  //   // console.log(res);
+  // };
 
   return (
     <div
@@ -62,7 +62,9 @@ const Settings = ({ active, setSettingsActive }) => {
             <h3>Settings</h3>
             <ul>
               <li className={s.navItem}>
-                <Link className={cn(s.navLink, s.active)}  onClick={toggleNavActive} to="settings/general">
+                <Link className={cn(s.navLink, s.active)}  
+                // onClick={toggleNavActive}
+                to="settings/general">
                   General
                 </Link>
               </li>
