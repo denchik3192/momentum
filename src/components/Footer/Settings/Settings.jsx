@@ -4,7 +4,11 @@ import cn from "classnames";
 import FunToggle from "./funToggle/FunToggle";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Link, Navigate, Outlet, redirect, Route, Routes, Switch } from "react-router-dom";
+import {
+  Link,
+  Route,
+  Routes,
+} from "react-router-dom";
 import GeneralSettings from "./SettingsItem/GeneralSettings";
 import PhotoSettings from "./SettingsItem/PhotoSettings";
 import ToDoSettings from "./SettingsItem/ToDoSettings";
@@ -12,37 +16,34 @@ import WeatherSettings from "./SettingsItem/WeatherSettings";
 import AudioSettings from "./SettingsItem/AudioSettings";
 import LanguageSettings from "./SettingsItem/LanguageSettings";
 import QuotesSettings from "./SettingsItem/QuotesSettings";
-import { AccountBalanceOutlined, AccountBox, AccountCircle, Person, PersonAdd, PersonOutline } from "@material-ui/icons";
-import { MdSwitchAccount } from "react-icons/md";
+import { AccountCircle } from "@material-ui/icons";
 
 const Settings = ({ active, setSettingsActive }) => {
-  const ref = useRef(null);
-  const [navActive, setNavActive] = useState(false);
+  const navItemsRef = useRef();
 
-  const settingsNavList = [
-    { id: 1, name: "general" },
-    { id: 2, name: "todo" },
-    { id: 3, name: "photos" },
-    { id: 4, name: "qoutes" },
-    { id: 5, name: "audio" },
-    { id: 6, name: "Weather" },
-    { id: 7, name: "language" },
-  ];
+  const toggleNavActive = (e) => {
+    //todo fix
+    const target = e.target.classList;
+    target.add(cn(s.active));
+    const arr = document.querySelectorAll(`.${s.navLink}`);
+    arr.forEach((el) => {
+      if (e.target !== el) el.classList.remove(cn(s.active));
+    });
+  };
 
-  // useEffect(() => {
-  //   const elements = document.querySelectorAll(`.${s.navItem}`);
-  //   console.log(elements);
-  // }, []);
+  // const settingsNavList = [
+  //   { id: 1, name: "general" },
+  //   { id: 2, name: "todo" },
+  //   { id: 3, name: "photos" },
+  //   { id: 4, name: "qoutes" },
+  //   { id: 5, name: "audio" },
+  //   { id: 6, name: "Weather" },
+  //   { id: 7, name: "language" },
+  // ];
 
-  // const toggleNavActive = (e) => {
-  //   console.log(e.target);
-  //   //todo fix
-  //   const target = e.target.classList;
-  //   target.contains(cn(s.active))
-  //     ? target.remove(cn(s.active))
-  //     : target.add(cn(s.active));
-  //   // console.log(res);
-  // };
+  useEffect(() => {
+    navItemsRef.current.addEventListener("click", toggleNavActive);
+  }, []);
 
   return (
     <div
@@ -55,16 +56,15 @@ const Settings = ({ active, setSettingsActive }) => {
       >
         <div className={s.settingsContent}>
           {/* <Outlet /> */}
-          <nav
-            ref={ref}
-            className={s.settingsNav}
-          >
+          <nav className={s.settingsNav}>
             <h3>Settings</h3>
-            <ul>
+            <ul ref={navItemsRef}>
               <li className={s.navItem}>
-                <Link className={cn(s.navLink, s.active)}  
-                // onClick={toggleNavActive}
-                to="settings/general">
+                <Link
+                  className={cn(s.navLink, s.active)}
+                  // onClick={toggleNavActive}
+                  to="settings/general"
+                >
                   General
                 </Link>
               </li>
@@ -99,11 +99,11 @@ const Settings = ({ active, setSettingsActive }) => {
                 </Link>
               </li>
             </ul>
-            <AccountCircle/>
+            <AccountCircle />
           </nav>
 
           <div className={s.settingsView}>
-            <h4>General</h4>
+            {/* <h4>General</h4> */}
             <Routes>
               <Route path="settings/general" element={<GeneralSettings />} />
               <Route path="settings/todo" element={<ToDoSettings />} />

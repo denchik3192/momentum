@@ -33,7 +33,7 @@ const Footer = (props) => {
     <footer className={s.footer}>
       {console.log("re")}
       <Link
-        to="settings"
+        to="settings/general"
         className={s.settingsButton}
         onClick={toggleSettings}
       ></Link>

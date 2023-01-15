@@ -1,65 +1,36 @@
-.player {
-    display: flex;
-    justify-content: center;
-
-    .playPrev {
-        background: url('./../../../assets/play-prev.svg');
+.playerWrapper {
+    width: 300px;
+    background: rgba(125, 125, 125, 0.108);
+    border-radius: 4px;
+    .player {
+        padding-top: 10px;
+        display: flex;
+        justify-content: center;
+        .playContainer {
+            svg {
+                width: 51px;
+                height: 38px;
+                cursor: pointer;
+            }    
+        }
     }
-
-    .playNext {
-        background: url('./../../../assets/play-next.svg');
-    }
-
-    .play {
-        background: url('./../../../assets/play.svg');
-        width: 38px;
-        height: 38px;
-    }
-
-    .playPrev,
-    .playNext,
-    .play {
-        display: block;
-        width: 38px;
-        height: 38px;
-        margin-right: 10px;
-        background-size: 32px 32px;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-color: transparent;
-        border: 0;
-        outline: 0;
-        opacity: .8;
-        cursor: pointer;
-        transition: .3s;
-    }
-
-    .play {
-        background-size: 38px 38px;
-    }
-
-    .playPrev:hover,
-    .playNext:hover,
-    .play:hover {
-        opacity: 1;
-        color: bisque;
-    }
+    
+    .playList {
+        padding: 0;
+        margin: 0;
+        margin-top: 10px;
+       
+        .playListItem {
+            text-align: center;
+            font-size: 16px;
+            color: rgb(255, 255, 255);
+            list-style: none;
+            font-style: italic;
+            transition: color 1s;  
+        }
+        .playListItem.active {
+            // transition: color 1s;  
+            color: rgb(99, 99, 99);
+        }
+    }    
 }
-
-.playList {
-    padding: 0;
-    margin: 0;
-    margin-top: 10px;
-    .playListItem {
-        text-align: left;
-        color: rgb(17, 89, 152);
-        list-style: none;
-    }
-    // .playListItem.active {
-    //     text-align: left;
-    //     color: rgb(82, 152, 17);
-    //     list-style: none;
-    // }
-}
-
-

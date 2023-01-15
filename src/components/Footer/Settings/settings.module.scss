@@ -1,6 +1,6 @@
 :root[data-theme="light"] {
     --backgroung: #fffffffc;
-    --backgroung2: hsla(0, 0%, 100%, 0.12);
+    --backgroung2: rgb(111, 111, 111);
     --font-color-main: #333333fc;
 }
 
@@ -131,7 +131,6 @@
             overflow: auto;
             padding: 0 20px 0 20px;
             width: 100%;
-            // border-left: 1px solid hsla(0, 0%, 100%, 0.12);
             border-left: 1px solid var(--backgroung2);
 
             h4 {

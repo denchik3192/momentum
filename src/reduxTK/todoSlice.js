@@ -5,8 +5,13 @@ export const todoSlice = createSlice({
     name: 'todo',
     initialState: {
         todos : [
-            // { id: 1, content: 'make a call1', checked: true },
-            // { id: 2, content: 'make a call2', checked: false },
+            { id: 1, content: 'React', checked: false },
+            { id: 2, content: 'Redux', checked: false },
+            { id: 3, content: 'Redux Toolkit', checked: false },
+            { id: 4, content: 'async thunk redux toolkit', checked: false },
+            { id: 5, content: 'Graph QL', checked: false },
+            { id: 6, content: 'Typescript', checked: false },
+            { id: 7, content: 'Responsive/Adaptive', checked: false },
         ],
     },
     reducers : {
