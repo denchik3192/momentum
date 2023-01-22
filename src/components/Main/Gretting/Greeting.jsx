@@ -1,3 +1,4 @@
+import cn from "classnames";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
@@ -5,7 +6,8 @@ import { changeUserName } from "../../../reduxTK/mainSlice";
 import s from "./greeting.module.scss";
 
 const Greeting = () =>{
-  const userName = useSelector((state) => state.toolkit.userName);
+  const userName = useSelector((state) => state.main.userName);
+  const isQuoteSettingActive = useSelector((state) => state.settings.generalSettings[2].checked);
   const dispatch = useDispatch();
 
   const onUserNameChange = (e) => {
@@ -24,7 +26,7 @@ const Greeting = () =>{
   // const time = getTimeOfDay();
 
   return (
-    <div className={s.greeting}>
+    <div className={cn(s.greeting, isQuoteSettingActive ? '' : s.hidden) }>
       Good {getTimeOfDay()},{" "}{/* TODO remove function usage*/}
       <input
         type="text"

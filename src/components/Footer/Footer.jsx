@@ -1,4 +1,5 @@
 import { Refresh } from "@material-ui/icons";
+import classNames from "classnames";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -14,6 +15,7 @@ const Footer = (props) => {
   const [settingsActive, setSettingsActive] = useState(false);
   const dispatch = useDispatch();
   const quoteData = useSelector((state) => state.quote);
+  const isQuoteSettingActive = useSelector((state) => state.settings.generalSettings[4].checked);
   const toggleToDo = () => {
     todoActive ? setTodoActive(false) : setTodoActive(true);
   };
@@ -38,15 +40,15 @@ const Footer = (props) => {
         onClick={toggleSettings}
       ></Link>
       <Settings active={settingsActive} setSettingsActive={setSettingsActive} />
-      <div className={s.qoute}>
+      <div className={classNames(s.qoute, isQuoteSettingActive ? '' : s.hidden)}>
         <Refresh className={s.quoteButton}
          onClick={refreshQuote}
           />
         {quoteData.status === "loading" ? (
           <div>{quoteData.status}</div>
         ) : (
-          quoteData.quote
-        )}
+          <div>{quoteData.quote}</div>
+          )}
       </div>
       <div className={s.todo} onClick={toggleToDo}>
         ToDo

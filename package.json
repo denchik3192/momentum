@@ -22,6 +22,7 @@
     "react-switch": "^7.0.0",
     "react-timer-hook": "^3.0.5",
     "redux": "^4.2.0",
+    "redux-saga": "^1.2.2",
     "redux-thunk": "^2.4.1",
     "use-sound": "^4.0.1",
     "use-timer": "^2.0.1",

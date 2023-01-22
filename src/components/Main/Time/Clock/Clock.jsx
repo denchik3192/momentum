@@ -1,6 +1,6 @@
-import classNames from "classnames";
 import React, { Component } from "react";
-import s from "./time.module.scss";
+import s from "./clock.module.scss";
+import cn from "classnames";
 
 export class Clock extends Component {
   constructor(props) {
@@ -25,8 +25,9 @@ export class Clock extends Component {
   }
 
   render() {
+    { }
     return (
-        <div className={s.clock}>
+        <div className={cn(s.clock, this.props.isActive ? '' : s.hidden)}>
           {this.state.date.toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",

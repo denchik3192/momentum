@@ -4,13 +4,15 @@ import todoSlice from './todoSlice';
 import mainSlice from './mainSlice';
 import weatherSlice from './weatherSlice';
 import quoteSlice from './quoteSlice';
+import settingsSlice from './settingsSlice';
 
 
 const rootReducer = combineReducers({
-    toolkit: mainSlice,
+    main: mainSlice,
     todo: todoSlice,
     weather: weatherSlice,
     quote: quoteSlice,
+    settings: settingsSlice,
 })
 
 export const store = configureStore ({

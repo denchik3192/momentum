@@ -1,15 +1,18 @@
+import { TimerSharp } from "@material-ui/icons";
+import { createSelector } from "@reduxjs/toolkit";
 import classNames from "classnames";
 import React, { Component } from "react";
 import { MdHourglassBottom, MdMoreHoriz } from "react-icons/md/index";
+import { connect, useSelector } from "react-redux";
 import Clock from "./Clock/Clock";
 import s from "./time.module.scss";
 import Timer from "./Timer/Timer";
 
 export class Time extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
-      // date: new Date(),
       timerActive: false,
       moreActive: false,
     };
@@ -31,7 +34,10 @@ export class Time extends Component {
       : this.setState({ moreActive: true });
   }
 
+  
+
   render() {
+    console.log(this.props+'time');
     return (
       <div className={s.timeWrapper}>
         <Timer timerActive={this.state.timerActive} more={this.moreActive} />
@@ -43,7 +49,10 @@ export class Time extends Component {
           }
           onClick={this.toggleTimerActive}
         />
-        <Clock/>
+
+        {/* {this.props.time ? <Clock/> : <Clock className={classNames(s.clock, s.hide) }/>} */}
+        <Clock isActive={this.props.time}/>
+        
         <MdMoreHoriz
           className={
             this.state.moreActive === true
@@ -57,4 +66,10 @@ export class Time extends Component {
   }
 }
 
-export default Time;
+
+let mapStateToProps = (state, ownProps) => ({
+  time: state.settings.generalSettings[0].checked,
+});
+
+
+export default connect(mapStateToProps)(Time);

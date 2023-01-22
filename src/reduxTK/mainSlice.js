@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
-export const toolkitSlice = createSlice({
-    name: 'toolkit',
+export const mainSlice = createSlice({
+    name: 'main',
     initialState: {
         count: 0,
-        userName: 'Den',
+        userName: 'Den1',
         userFocus: '',
     },
     reducers: {
@@ -25,5 +25,5 @@ export const toolkitSlice = createSlice({
     
 })
 
-export default toolkitSlice.reducer;
-export const {decrement, increment, changeUserName, changeUserFocus} = toolkitSlice.actions;
+export default mainSlice.reducer;
+export const {decrement, increment, changeUserName, changeUserFocus} = mainSlice.actions;

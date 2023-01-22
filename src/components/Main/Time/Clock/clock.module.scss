@@ -1,0 +1,17 @@
+
+    .clock {
+        position: relative;
+        cursor: default;
+        font-size: 1050%;
+        padding: 0px 20px 0 20px;
+        opacity: 1;
+        transition: 0.5s ease-in;
+        // transform: scale(1);
+        
+        &.hidden {
+            opacity: 0;
+            transition: 0.5s ease-in-out;
+            // transform: scale(1.5, 1);
+        }
+    }
+    
