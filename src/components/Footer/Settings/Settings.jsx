@@ -11,6 +11,7 @@ import AudioSettings from "./SettingsItem/AudioSettings";
 import LanguageSettings from "./SettingsItem/LanguageSettings";
 import QuotesSettings from "./SettingsItem/QuotesSettings";
 import { AccountCircle } from "@material-ui/icons";
+import { useEffect } from "react";
 
 const Settings = ({ active, setSettingsActive }) => {
   const [liActiveId, setLiActiveId] = useState(1);
@@ -28,22 +29,25 @@ const Settings = ({ active, setSettingsActive }) => {
   const onActiveLinkHandler = (id) => {
     setLiActiveId(id);
   };
+  useEffect(() => {
+    setLiActiveId(1);
+  }, [active]);
 
   const navList = settingsNavList.map((link) => {
     return (
-        <li className={s.navItem} key={link.id}>
-          <Link
-            className={cn(s.navLink, liActiveId === link.id ? s.active : '')}
-            key={link.id}
-            to={`settings/${link.name}`}
-            onClick={() => onActiveLinkHandler(link.id)}
-          >
-            {link.name}
-          </Link>
-        </li>
+      <li className={s.navItem} key={link.id}>
+        <Link
+          className={cn(s.navLink, liActiveId === link.id ? s.active : "")}
+          key={link.id}
+          to={`settings/${link.name}`}
+          onClick={() => onActiveLinkHandler(link.id)}
+        >
+          {link.name}
+        </Link>
+      </li>
     );
   });
-
+  console.log("r");
   return (
     <div
       className={active ? cn(s.settingsWrapper, s.active) : s.settingsWrapper}
@@ -58,6 +62,7 @@ const Settings = ({ active, setSettingsActive }) => {
           <nav className={s.settingsNav}>
             <h3>Settings</h3>
             <ul>{navList}</ul>
+            {/* <div className={s.skull}></div> */}
             <AccountCircle />
           </nav>
 
