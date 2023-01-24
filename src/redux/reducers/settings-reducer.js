@@ -1,6 +1,8 @@
 const TOGGLE_SETTING = "INCREMENT";
 const ADD_SETTINGS = "ADD_SETTINGS";
-// const DECREMENT = 'DECREMENT';
+const ASYNC_ADD_SETTINGS = 'ASYNC_ADD_SETTINGS';
+const SET_USERS = 'SET_USERS';
+const FETCH_USERS = 'FETCH_USERS';
 
 const initialState = {
   generalSettings: [
@@ -38,7 +40,10 @@ export default function settingsReducer(state = initialState, action) {
 }
 
 export const toggleSettingAction = (payload) => ({ type: TOGGLE_SETTING, payload });
-export const addSettingAction = (payload) => ({ type: TOGGLE_SETTING, payload });
+export const addSettingAction = (payload) => ({ type: ADD_SETTINGS, payload });
+export const asyncAddSettingAction = (payload) => ({ type: ASYNC_ADD_SETTINGS, payload });
+export const setUsers = (payload) => ({ type: SET_USERS, payload });
+export const fetchUsers = () => ({ type: FETCH_USERS });
 
 
 export const fetchSettings = () => {

@@ -11,6 +11,7 @@ export const settingsSlice = createSlice({
         { id: 5, name: "qoutes", checked: true },
         { id: 6, name: "audio", checked: true },
         { id: 7, name: "Weather", checked: true },
+        { id: 8, name: "Todo", checked: true },
     ],
     todoSettings: [
     ],

@@ -9,7 +9,6 @@ import { toggleSetting } from "../../../../reduxTK/settingsSlice";
 
 function GeneralSettings() {
   const settingsElements = useSelector((state) => state.settings);
-  console.log(settingsElements);
   const settingsItemElements = settingsElements.generalSettings.map(
     (setting) => (
       <SettingsItem
@@ -21,8 +20,6 @@ function GeneralSettings() {
     )
   );
 
-  console.log(settingsElements.generalSettings);
-  console.log("GeneralSettings render");
   return (
     <div>
       <h4>Appearance</h4>

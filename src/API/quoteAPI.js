@@ -7,7 +7,6 @@ export async function fetchQuote() {
         `https://api.quotable.io/random`
       );
       const data = res.data;
-      console.log(data);
       return data;
       }catch (err){
         console.log(err);

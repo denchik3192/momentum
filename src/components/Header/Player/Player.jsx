@@ -11,10 +11,13 @@ import {
   PlayArrowRounded,
 } from "@material-ui/icons";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Player = () => {
   const [playSound, { pause }] = useSound(sound);
   const [isPlaying, setIsPlaying] = useState(false);
+  
+  const isPlayerSettingActive = useSelector(state => state.settings.generalSettings[5].checked)
 
   const PlayListItem = ({ id, songName }) => {
     return (
@@ -39,7 +42,7 @@ const Player = () => {
   };
 
   return (
-    <div className={s.playerWrapper}>
+    <div className={classNames(s.playerWrapper, isPlayerSettingActive ? '' : s.hidden) }>
       <div className={s.player}>
         <div className={s.playContainer}>
           <NavigateBefore />

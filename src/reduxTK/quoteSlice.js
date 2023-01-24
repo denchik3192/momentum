@@ -5,9 +5,9 @@ export const fetchQuotes = createAsyncThunk(
     "quote/fetchQuote",
     async function (_, { rejectWithValue, dispatch }) {
         try {
-            console.log('1');
+            
             const response = await fetchQuote();
-            console.log(response);
+           
             // dispatch(changeQuote())
             return response;
         } catch (error) {
@@ -36,7 +36,6 @@ const  quoteSlice = createSlice({
             state.error = null;
         },
         [fetchQuotes.fulfilled]: (state, action) => {
-            console.log('2');
             state.status = "resolved";
             state.quote = action.payload.content;
             state.author = action.payload.author;

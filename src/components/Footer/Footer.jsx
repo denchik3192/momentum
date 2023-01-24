@@ -16,6 +16,7 @@ const Footer = (props) => {
   const dispatch = useDispatch();
   const quoteData = useSelector((state) => state.quote);
   const isQuoteSettingActive = useSelector((state) => state.settings.generalSettings[4].checked);
+  const isTodoSettingActive = useSelector((state) => state.settings.generalSettings[7].checked);
   const toggleToDo = () => {
     todoActive ? setTodoActive(false) : setTodoActive(true);
   };
@@ -33,7 +34,6 @@ const Footer = (props) => {
 
   return (
     <footer className={s.footer}>
-      {console.log("re")}
       <Link
         to="settings/general"
         className={s.settingsButton}
@@ -50,7 +50,7 @@ const Footer = (props) => {
           <div>{quoteData.quote}</div>
           )}
       </div>
-      <div className={s.todo} onClick={toggleToDo}>
+      <div className={classNames(s.todo, isTodoSettingActive ? '' : s.hidden )} onClick={toggleToDo}>
         ToDo
       </div>
       <ToDo active={todoActive} onClick={toggleToDo} />

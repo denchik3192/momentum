@@ -73,7 +73,12 @@
 
             height: 100%;
             display: flex;
-
+            .skull {
+                width: 50px;
+                height: 50px;
+                background-image: url('../../../assets/skull.svg');
+                background-repeat: no-repeat;
+            }
             .settingsNav {
                 width: 40%;
                 margin-left: 10px;

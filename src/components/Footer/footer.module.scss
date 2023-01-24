@@ -35,23 +35,28 @@
     .settingsButton {
         width: 35px;
         height: 35px;
-        background-image: url('../../assets/settings_FILL.svg');
+        background-image: url('../../assets/sett.png');
         color: aliceblue;
         background-size: 100%;
         cursor: pointer;
         background-repeat: no-repeat;
-        fill: aliceblue;
+        fill: rgb(239, 239, 239);
         transition: 0.2s ease;
     }
     .settingsButton:hover {
-        transform: rotateZ(90deg);
-        transition: 0.2s ease;
+        // transform: rotateZ(90deg);
+        // transition: 0.2s ease;
     }
     .todo {
         font-size: 20px;
         position: relative;
         cursor: pointer;
         transition: 0.2s;
+        &.hidden {
+            opacity: 0;
+            transition: 0.5s ease-in;
+            visibility: hidden;
+        } 
     }
     .todo:hover {
         color: rgb(214, 214, 214);
