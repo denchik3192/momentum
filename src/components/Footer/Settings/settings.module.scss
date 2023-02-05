@@ -149,12 +149,10 @@
 
         .settingsView::-webkit-scrollbar {
             width: 6px;
-            /* ширина всей полосы прокрутки */
         }
 
         .settingsView::-webkit-scrollbar-track {
             background: transparent;
-            /* цвет зоны отслеживания */
         }
 
         .settingsView::-webkit-scrollbar-thumb {
