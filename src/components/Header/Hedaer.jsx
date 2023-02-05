@@ -8,8 +8,10 @@ import playList from "../../data/playList";
 import Currency from "./Currency/Currency";
 import { useSelector } from "react-redux";
 import cn from "classnames";
+import { Fullscreen } from "@material-ui/icons";
 
 const Header = (props) => {
+  const [isFullscreen, setIsFullscreen] = useState(true);
   const [weatherActive, setWeatherActive] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentSong, setCurrentSong] = useState(playList[0]);
@@ -24,6 +26,10 @@ const Header = (props) => {
     weatherActive ? setWeatherActive(false) : setWeatherActive(true);
   };
 
+  const togglefullScreen = () => {
+    console.log('fullsreen');
+  };
+
   return (
     <header className={s.header}>
       <Player
@@ -35,7 +41,8 @@ const Header = (props) => {
       />
       {/* <Link to="/todopage"> ToDoPage </Link>
       <Link to="/login"> Login </Link> */}
-      <Currency />
+      <Fullscreen onClick={togglefullScreen}/>
+      {/* <Currency /> */}
       <div
         className={cn(s.weatherIcon, isWeatherSettingActive ? "" : s.hidden)}
         onClick={toggleWeather}

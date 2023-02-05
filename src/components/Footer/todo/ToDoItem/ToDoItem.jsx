@@ -1,4 +1,5 @@
 import { Check, Delete, DeleteForeverOutlined, Edit, EditAttributesOutlined, EditAttributesTwoTone, EditOutlined } from "@material-ui/icons";
+import classNames from "classnames";
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -10,7 +11,7 @@ import {
 } from "../../../../reduxTK/todoSlice";
 import s from "./todoItem.module.scss";
 
-const ToDoItem = ({ content, id, checked }) => {
+const ToDoItem = ({ content, id, checked, maximizedToDo }) => {
   const [editToDo, setEditToDo] = useState(false);
   const [newEditedToDo, setNewEditedToDo] = useState(content);
   const dispatch = useDispatch();
@@ -26,9 +27,9 @@ const ToDoItem = ({ content, id, checked }) => {
   const onToDoChange = (e) => {
     setNewEditedToDo(e.currentTarget.value);
   };
-
+console.log(maximizedToDo);
   return (
-    <div className={s.todoItem}>
+    <div className={classNames(s.todoItem, maximizedToDo ? s.maximized: '') }>
       <input
         type="checkbox"
         onChange={handleIChekboxChange}
