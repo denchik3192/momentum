@@ -1,0 +1,11 @@
+.fullScreenButton {
+    position: absolute;
+    top: 20px;
+    left: 49%;
+    z-index: 2000;
+    font-size: 30px;
+    cursor: pointer;
+    &:hover {
+        fill:rgb(49, 49, 49)
+    }
+}

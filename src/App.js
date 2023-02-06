@@ -7,6 +7,7 @@ import ThemeProvider from "./providers/ThemeProvider";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
+  const [isFullscreenActive, setIsFullscreenActive] = useState(false);
 
   useEffect(() => {
     if (localStorage.getItem("auth")) {
@@ -16,11 +17,13 @@ function App() {
 
   return (
     <AuthContext.Provider value={{ isAuth, setIsAuth }}>
+
       <ThemeProvider>
         <BrowserRouter>
-          <div className="app">
+          <div className="app" >
             <AppRouter />
           </div>
+
         </BrowserRouter>
       </ThemeProvider>
     </AuthContext.Provider>

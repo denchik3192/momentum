@@ -9,8 +9,10 @@ import Currency from "./Currency/Currency";
 import { useSelector } from "react-redux";
 import cn from "classnames";
 import { Fullscreen } from "@material-ui/icons";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 const Header = (props) => {
+  const handle = useFullScreenHandle();
   const [isFullscreen, setIsFullscreen] = useState(true);
   const [weatherActive, setWeatherActive] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -23,15 +25,12 @@ const Header = (props) => {
   const audioElem = useRef();
 
   const toggleWeather = () => {
+    
     weatherActive ? setWeatherActive(false) : setWeatherActive(true);
   };
 
-  const togglefullScreen = () => {
-    console.log('fullsreen');
-  };
-
   return (
-    <header className={s.header}>
+      <header className={s.header}>
       <Player
         audioElem={audioElem}
         songs={songs}
@@ -41,7 +40,7 @@ const Header = (props) => {
       />
       {/* <Link to="/todopage"> ToDoPage </Link>
       <Link to="/login"> Login </Link> */}
-      <Fullscreen onClick={togglefullScreen}/>
+      {/* <Fullscreen/> */}
       {/* <Currency /> */}
       <div
         className={cn(s.weatherIcon, isWeatherSettingActive ? "" : s.hidden)}
