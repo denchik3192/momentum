@@ -64,9 +64,12 @@
                 }
             }
             .status {
+                #sorting{
+                    display: inline-block;
+                }
                 display: flex;
-                max-width: 50%;
-                align-items: flex-start;
+                max-width: 100%;
+                align-items: center;
                 justify-content: space-between;
                 margin: 0 0 20px 35px;
                 button {

@@ -4,15 +4,14 @@ import cn from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 import ToDoItem from "./ToDoItem/ToDoItem";
 import { useState } from "react";
-import { addToDo, deleteToDo } from "../../../reduxTK/todoSlice";
+import { addToDo, deleteToDo, sortByName } from "../../../reduxTK/todoSlice";
 import { More, MoreHoriz } from "@material-ui/icons";
 
 const ToDo = ({ active }) => {
   const [newToDo, setNewToDo] = useState("");
+  const [sortName, setSortName] = useState("Date");
   const [maximizedToDo, setMaximizedToDo] = useState(false);
-
   const [moreActive, setMoreActive] = useState(false);
-  console.log(moreActive);
   const [editToDo, setEditToDo] = useState(false);
   const todos = useSelector((state) => state.todo);
   const dispatch = useDispatch();
@@ -24,8 +23,6 @@ const ToDo = ({ active }) => {
       key={todo.id}
       id={todo.id}
       checked={todo.checked}
-      // editToDo={editToDo}
-      // setEditToDo={setEditToDo}
     />
   ));
 
@@ -53,6 +50,11 @@ const ToDo = ({ active }) => {
     }
   };
 
+  const onSelectHandle = (e) => {
+    dispatch(sortByName(e.currentTarget.value))
+    setSortName(e.currentTarget.value)
+  }
+
   return (
     <div
       className={
@@ -71,11 +73,12 @@ const ToDo = ({ active }) => {
 
       {maximizedToDo ? (
         <div className={s.status}>
-          <select name="sorting" id="sorting">
-            <option value="Name">Name</option>
+          <select name="sorting" id="sorting" onChange={onSelectHandle} value=
+          {sortName}>
             <option value="Date">Date</option>
+            <option value="Name">Name</option>
           </select>
-          <button>All</button> <button>Active</button> <button>Done</button>
+          <button>All</button> <button>Active</button> <button onClick={dispatch(showDone())}>Done</button>
         </div>
       ) : (
         <div></div>
