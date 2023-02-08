@@ -15,6 +15,9 @@ export const todoSlice = createSlice({
         ],
     },
     reducers: {
+        getToDo(state, action) {
+            console.log('all');
+        },
         addToDo(state, action) {
             const content = action.payload
             const newId = state.todos.length + 1;
@@ -29,20 +32,10 @@ export const todoSlice = createSlice({
             }
 
         },
-        showDone(state, action) {
-            return [...state.todos].filter(item => {
-                item.checked === true;
-            })
-            
-
+        showDoneTodos(state, action) {
+            console.log(state.todos);
+            state.todos = [...state.todos].filter( item => item.checked === true)
         },
-        // addDoneToDo(state, action) {
-        //     const content = action.payload
-        //     const newId = state.todos.length + 1;
-        //     console.log(content);
-
-        //     state.doneTodos.push({ id: newId, content: `${content}` });//check
-        // },
         deleteToDo(state, action) {
             let newToDo = [...state.todos].filter(item => item.id !== action.payload)
             state.todos = newToDo;
@@ -73,4 +66,4 @@ export const todoSlice = createSlice({
 })
 
 export default todoSlice.reducer;
-export const { addToDo, deleteToDo, changeToDoStatus, updateToDo, sortByName } = todoSlice.actions;
+export const { getToDo, addToDo, deleteToDo, changeToDoStatus, updateToDo, sortByName, showDoneTodos } = todoSlice.actions;

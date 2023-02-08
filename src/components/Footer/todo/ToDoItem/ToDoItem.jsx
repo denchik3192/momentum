@@ -26,7 +26,7 @@ const ToDoItem = ({ content, id, checked, maximizedToDo }) => {
   const onToDoChange = (e) => {
     setNewEditedToDo(e.currentTarget.value);
   };
-console.log(maximizedToDo);
+
   return (
     <div className={classNames(s.todoItem, maximizedToDo ? s.maximized: '') }>
       <input
