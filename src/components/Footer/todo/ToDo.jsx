@@ -4,9 +4,10 @@ import cn from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 import ToDoItem from "./ToDoItem/ToDoItem";
 import { useState } from "react";
-import { addToDo, deleteToDo, getToDo, showDoneTodos, sortByName } from "../../../reduxTK/todoSlice";
+import { addToDo, changeFilter, sortByName } from "../../../reduxTK/todoSlice";
 import { More, MoreHoriz } from "@material-ui/icons";
 import Select from "react-select";
+import { selectTodosByFilter } from "../../../reduxTK/selectors/filter-selector";
 
 const ToDo = ({ active }) => {
   const [newToDo, setNewToDo] = useState("");
@@ -14,7 +15,8 @@ const ToDo = ({ active }) => {
   const [maximizedToDo, setMaximizedToDo] = useState(false);
   const [moreActive, setMoreActive] = useState(false);
   // const [editToDo, setEditToDo] = useState(false);
-  const todos = useSelector((state) => state.todo);
+  const todos = useSelector( selectTodosByFilter );
+  // const todos = useSelector((state) => state.todo);
   const dispatch = useDispatch();
 
   const todosElements = todos.todos.map((todo) => (
@@ -116,7 +118,7 @@ const ToDo = ({ active }) => {
             <option value="Date">Date</option>
             <option value="Name">Name</option>
           </select> */}
-          <button onClick={() => dispatch(getToDo())}>All</button> <button>Active</button> <button onClick={()=>dispatch(showDoneTodos())}>Done</button>
+          <button onClick={()=>dispatch(changeFilter('all'))}>All</button> <button onClick={()=>dispatch(changeFilter('active'))}>Active</button> <button onClick={()=>dispatch(changeFilter('complited'))}>Complited</button>
         </div>
       ) : (
         <div></div>
