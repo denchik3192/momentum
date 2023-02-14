@@ -1,7 +1,7 @@
 import { createSelector } from "@reduxjs/toolkit";
 
-export const selectAllTodos = (state) => state.todo;
-export const selectActiveFilter = (state) => state.todo;
+export const selectAllTodos = state => state.todo.todos;
+export const selectActiveFilter = state => state.filter;
 
 export const selectTodosByFilter = createSelector(
   [selectAllTodos, selectActiveFilter],

@@ -29,6 +29,7 @@ const ToDoItem = ({ content, id, checked, maximizedToDo }) => {
 
   return (
     <div className={classNames(s.todoItem, maximizedToDo ? s.maximized: '') }>
+      {/* <label htmlFor={id}/> */}
       <input
         type="checkbox"
         onChange={handleIChekboxChange}
