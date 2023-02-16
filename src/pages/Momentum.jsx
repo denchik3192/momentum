@@ -8,15 +8,17 @@ import s from "./momentum.module.scss";
 
 function Momentum() {
   const screen1 = useFullScreenHandle();
-  const [isFullSreenActive, setSsFullSreenActive] = useState(false)
+  const [isFullSreenActive, setSsFullSreenActive] = useState(false);
+
   const screenHandler = () => {
-    isFullSreenActive ? screen1.enter() : screen1.exit();
-    setSsFullSreenActive(!isFullSreenActive)
-  }
+    isFullSreenActive ? setSsFullSreenActive(false) :  setSsFullSreenActive(true);
+    isFullSreenActive ? screen1.exit() : screen1.enter();
+  };
+
   return (
     <Fragment>
       <FullScreen handle={screen1}>
-      <Fullscreen onClick={screenHandler} className={s.fullScreenButton} />
+        <Fullscreen onClick={screenHandler} className={s.fullScreenButton} />
         <Header />
         <Main />
         <Footer />

@@ -16,10 +16,12 @@ const ToDo = ({ active }) => {
   const [sortName, setSortName] = useState("Date");
   const [maximizedToDo, setMaximizedToDo] = useState(false);
   const [moreActive, setMoreActive] = useState(false);
+  const [selectedTodosStatus, setSelectedTodosStatus] = useState("all");
+  
   const todos = useSelector(selectTodosByFilter);
   const dispatch = useDispatch();
 
-  const todosElements = todos.map((todo) => (
+  const todosList = todos.map((todo) => (
     <ToDoItem
       maximizedToDo={maximizedToDo}
       content={todo.content}
@@ -54,6 +56,11 @@ const ToDo = ({ active }) => {
     setSortName(e.label);
   };
 
+  const selectTodosStatus = (e) => {
+    dispatch(changeFilter(e));
+    setSelectedTodosStatus(e);
+  };
+
   return (
     <div
       className={
@@ -73,18 +80,19 @@ const ToDo = ({ active }) => {
       {maximizedToDo ? (
         <div className={s.status}>
           <SelectComponent onSelectHandle={onSelectHandle} />
-          <button onClick={() => dispatch(changeFilter("all"))}>All</button>
-          <button onClick={() => dispatch(changeFilter("active"))}>
+          {/* fix */}
+          <button className={cn(selectedTodosStatus === 'all' ? s.active : '')} onClick={() => selectTodosStatus("all")}>All</button> 
+          <button className={cn( selectedTodosStatus === 'active' ? s.active : '')} onClick={() => selectTodosStatus("active")}>
             Active
           </button>
-          <button onClick={() => dispatch(changeFilter("complited"))}>
+          <button className={cn( selectedTodosStatus === 'complited' ? s.active : '')} onClick={() => selectTodosStatus("complited")}>
             Complited
           </button>
         </div>
       ) : (
         <div></div>
       )}
-      {todosElements}
+      {todosList}
 
       <div className={s.todoFooter}>
         <input

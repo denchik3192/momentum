@@ -1,11 +1,13 @@
 :root[data-theme="light"] {
     --backgroung: #fffffffc;
     --font-color-main: #333333fc;
+    --todo-status-color-main: #333333fc;
 }
 
 :root[data-theme="dark"] {
     --backgroung: #333333fc;
     --font-color-main: #eeeeee;
+    --todo-status-color-main: #d6d6d6fc;
 }
 
 .todo {
@@ -62,9 +64,7 @@
                     &:hover::before {
 
                         top: 24px;
-
                     }
-
                 }
             }
 
@@ -75,18 +75,20 @@
                 justify-content: space-between;
                 margin: 0 0 20px 10px;
 
-                    
+
                 button {
                     width: 100px;
                     height: 40px;
-                    color: greenyellow;
+                    color: var(--todo-status-color-main);
                     background: transparent;
                     border: none;
                     cursor: pointer;
                     display: inline-block;
                 }
 
-
+                button.active {
+                    color: rgb(138, 224, 9);
+                }
             }
 
             #toDoInput {
@@ -149,7 +151,6 @@
                 border-radius: 50%;
             }
         }
-
     }
 
     #toDoInput {
@@ -174,7 +175,6 @@
             border-bottom: 1px solid #b5b5b5;
             transition: 0.2s ease;
         }
-
     }
 
     .toDoButton {
@@ -193,8 +193,6 @@
         background-color: var(--backgroung);
         transition: 0.3S;
     }
-
-
 }
 
 .doneTodos {
