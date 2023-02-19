@@ -2,7 +2,7 @@ import React, { Fragment, useRef } from "react";
 import s from "./settings.module.scss";
 import cn from "classnames";
 import { useState } from "react";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, redirect, Route, Routes } from "react-router-dom";
 import GeneralSettings from "./SettingsItem/GeneralSettings";
 import PhotoSettings from "./SettingsItem/PhotoSettings";
 import ToDoSettings from "./SettingsItem/ToDoSettings";
@@ -11,9 +11,16 @@ import AudioSettings from "./SettingsItem/AudioSettings";
 import LanguageSettings from "./SettingsItem/LanguageSettings";
 import QuotesSettings from "./SettingsItem/QuotesSettings";
 import { useEffect } from "react";
-import { AccountCircle } from "@mui/icons-material";
+import { AccountCircle, Logout } from "@mui/icons-material";
+import { useSelector } from "react-redux";
+import { useContext } from "react";
+import { AuthContext } from "../../../context";
 
 const Settings = ({ active, setSettingsActive }) => {
+  const userName = useSelector((state) => state.main.userName);
+  const { setIsAuth } = useContext(AuthContext);
+  const [isAccountActive, setIsAccountActive] = useState(false);
+  console.log(isAccountActive);
   const [liActiveId, setLiActiveId] = useState(1);
 
   const settingsNavList = [
@@ -28,10 +35,25 @@ const Settings = ({ active, setSettingsActive }) => {
 
   const onActiveLinkHandler = (id) => {
     setLiActiveId(id);
+    if ( isAccountActive === true) {
+      setIsAccountActive(false)
+    }
+    
   };
   useEffect(() => {
     setLiActiveId(1);
   }, [active]);
+
+  const logoutHandler = (e) => {
+    // e.stopPropagation();
+    window.localStorage.removeItem("auth");
+    setIsAccountActive(false)
+    setIsAuth(false);
+  };
+
+  const accountHandler = () => {
+    setIsAccountActive(!isAccountActive);
+  };
 
   const navList = settingsNavList.map((link) => {
     return (
@@ -47,7 +69,7 @@ const Settings = ({ active, setSettingsActive }) => {
       </li>
     );
   });
-  console.log("r");
+  console.log("settings-render");
   return (
     <div
       className={active ? cn(s.settingsWrapper, s.active) : s.settingsWrapper}
@@ -60,9 +82,16 @@ const Settings = ({ active, setSettingsActive }) => {
         <div className={s.settingsContent}>
           {/* <Outlet /> */}
           <nav className={s.settingsNav}>
-            <h3>Settings</h3>
+            <h2>Settings</h2>
             <ul>{navList}</ul>
-            <AccountCircle />
+            <div className={s.account} onClick={accountHandler}>
+              <AccountCircle />
+              <Logout
+                className={cn(s.logout, isAccountActive ? "" : s.hidden)}
+                onClick={logoutHandler}
+              />
+              <p className={s.accountName}>{userName}</p>
+            </div>
           </nav>
 
           <div className={s.settingsView}>
