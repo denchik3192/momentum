@@ -95,7 +95,7 @@
                     .logout {
                         transform: translateX(+30px);
                         visibility: visible;
-                        transition: 0.3s ease;
+                        transition: 0.2s ease;
                         opacity: 1;
                         &:hover {
                             color: red;
@@ -103,8 +103,8 @@
     
                         &.hidden {
                             visibility: hidden;
-                            transition: 0.3s ease;
-                            transform: translateX(-10px);
+                            transition: 0.2s ease;
+                            transform: translateX(-50px);
                             visibility: hidden;
                             opacity: 0;
                         }
