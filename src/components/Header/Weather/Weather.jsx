@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import s from "./weather.module.scss";
 import cn from "classnames";
-import { WiDaySleet } from "react-icons/wi";
 import { changeLocation, fetchWether } from "../../../reduxTK/weatherSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { EditOutlined } from "@material-ui/icons";
-import { MdMoreHoriz } from "react-icons/md";
+
+import { Edit, MoreHoriz } from "@mui/icons-material";
+import { WiDayCloudy } from "react-icons/wi";
 
 const Weather = ({ active, setActive }) => {
   const [lacationEdit, setLocationEdit] = useState(false);
@@ -50,7 +50,7 @@ const Weather = ({ active, setActive }) => {
                 <h3 className={s.location}>{weatherData.location}</h3>
               )}
 
-              <EditOutlined
+              <Edit
                 className={s.editIcon}
                 onClick={toggleLocationEdit}
               />
@@ -59,14 +59,14 @@ const Weather = ({ active, setActive }) => {
               </span>
             </div>
             <div className={s.more}>
-              <MdMoreHoriz />
+              <MoreHoriz />
             </div>
           </div>
 
           <div className={s.descriptionContainer}>
             <span className={s.temperature}>{weatherData.temperature}</span>
             <div className={s.weatherIcon}>
-              <WiDaySleet />
+              <WiDayCloudy />
             </div>
             <div className={s.additionalDescr}>
               <div className={s.wind}>

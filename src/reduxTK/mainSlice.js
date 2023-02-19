@@ -4,18 +4,12 @@ import { createSlice } from "@reduxjs/toolkit";
 export const mainSlice = createSlice({
     name: 'main',
     initialState: {
-        count: 0,
-        userName: 'Den1',
+        userName: 'Den',
         userFocus: '',
     },
     reducers: {
-        increment(state) {
-            state.count += 1;
-        },
-        decrement(state) {
-            state.count -= 1;
-        },
         changeUserName(state, action) {
+            console.log(action.payload);
             state.userName = action.payload;
         },
         changeUserFocus(state, action) {
@@ -26,4 +20,4 @@ export const mainSlice = createSlice({
 })
 
 export default mainSlice.reducer;
-export const {decrement, increment, changeUserName, changeUserFocus} = mainSlice.actions;
+export const {changeUserName, changeUserFocus} = mainSlice.actions;

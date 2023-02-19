@@ -3,103 +3,76 @@ import { useEffect } from "react";
 import { useState } from "react";
 import s from "./auth.module.scss";
 import { AuthContext } from "../../context/";
+import { useForm } from "react-hook-form";
+import { logRoles } from "@testing-library/react";
+import { changeUserName } from "../../reduxTK/mainSlice";
+import { useDispatch } from "react-redux";
 
 const Auth = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [touchedEmail, setTouchedEmail] = useState(false);
-  const [touchedPassword, setTouchedPassword] = useState(false);
-  const [emailError, setEmailError] = useState("Field Email can not be empty");
-  const [passwordError, setPasswordError] = useState(
-    "Field Password can not be empty"
-  );
-  const [formValid, setFormValid] = useState(false);
-  const {isAuth, setIsAuth} = useContext(AuthContext);
-  console.log(isAuth);
+  const dispatch = useDispatch()
+  const { isAuth, setIsAuth } = useContext(AuthContext);
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors, isValid },
+    reset,
+  } = useForm({
+    mode: "onBlur"
+  });
 
-  const login = event => {
-    console.log(isAuth);
-    event.preventDefault();
+  // your form submit function which will invoke after successful validation
+
+  const onSubmit = (data) => {
     setIsAuth(true);
-    localStorage.setItem('auth', 'true')
-  }
-
-  useEffect(() => {
-    if (emailError || passwordError) {
-      setFormValid(false);
-    } else {
-      setFormValid(true);
-    }
-  }, [emailError, passwordError]);
-
-  const emailHandler = (e) => {
-    setEmail(e.target.value);
-    const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-    if (!emailPattern.test(String(e.target.value).toLocaleLowerCase())) {
-      setEmailError("Wrong email");
-    } else {
-      setEmailError("");
-    }
-  };
-
-  const passwordHandler = (e) => {
-    setPassword(e.target.value);
-    if (e.target.value.length < 3 || e.target.value.length > 10) {
-      setPasswordError("Wrong password");
-      if (!e.target.value) {
-        setPasswordError("Field Password can not be empty");
-      }
-    } else {
-      setPasswordError("");
-    }
-  };
-
-  const blurHandler = (e) => {
-    switch (e.target.name) {
-      case "current-email":
-        setTouchedEmail(true);
-        break;
-      case "current-password":
-        setTouchedPassword(true);
-        break;
-        default:
-    }
+    localStorage.setItem("auth", "true");
+    console.log(data);
+    reset();
   };
 
   return (
     <div className={s.formWrapper}>
-      <form onSubmit={login} className={s.form}>
-      <h1>Registration</h1>
-      {touchedEmail && emailError && (
-        <div className={s.error}>{emailError}</div>
-      )}
-      <input
-        onChange={(e) => emailHandler(e)}
-        value={email}
-        onBlur={(e) => blurHandler(e)}
-        type="email"
-        name="current-email"
-        id="email"
-        placeholder="email"
-      />
-      {touchedPassword && passwordError && (
-        <div className={s.error}>{passwordError}</div>
-      )}
-      <input
-        onChange={(e) => passwordHandler(e)}
-        value={password}
-        onBlur={(e) => blurHandler(e)}
-        type="password"
-        name="current-password"
-        id="password"
-        placeholder="password"
-      />
-      <button disabled={!formValid} type="submit">
-        Registration
-      </button>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <h1>Registration</h1>
+        <label htmlFor="firstName">
+          First Name:
+          <input
+            placeholder="Denis"
+            {...register("firstName", {
+              required: "Must be filled.",
+            })}
+          />
+        </label>
+        <div style={{ height: 5 }}>{errors?.firstName && <p>{errors?.firstName.message || "Error!"}</p>}</div>
+
+        <label htmlFor="email">
+          Email:
+          <input
+            placeholder="den465341@gmail.com"
+            type="text"
+            {...register("email",{
+              required: "Must be filled.",
+              pattern: {
+                value: /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/,
+                message : "invalid Email"},
+            })}
+          />
+        </label>
+        <div style={{ height: 5 }}>{errors?.email && <p>{errors?.email.message || "Error"}</p>}</div>
+        <label htmlFor="password">Password:</label>
+
+        <input placeholder="password" type="text" {...register("password", {
+          required: "Must be filled.",
+          minLength: {
+            value: 5,
+            message: "Your password must be at least 6 characters.",
+          }
+        })} />
+        <div style={{ height: 5 }}>{errors?.password && <p>{errors?.password.message || "Error"}</p>}</div>
+
+        <input type="submit" value={"submit"} disabled={!isValid}/>
       </form>
     </div>
-    
   );
 };
 

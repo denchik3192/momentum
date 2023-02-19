@@ -1,4 +1,4 @@
-import { Check, Delete, DeleteForeverOutlined, Edit, EditAttributesOutlined, EditAttributesTwoTone, EditOutlined } from "@material-ui/icons";
+import { DeleteForever, Edit } from "@mui/icons-material";
 import classNames from "classnames";
 import React from "react";
 import { useState } from "react";
@@ -51,15 +51,15 @@ const ToDoItem = ({ content, id, checked, maximizedToDo }) => {
         <label htmlFor="">{content}</label>
       )}
       {/* <label htmlFor="">{content}</label> */}
-      <EditOutlined className={s.deleteTodoItem} onClick={toggleEditMode}>
+      <Edit className={s.deleteTodoItem} onClick={toggleEditMode}>
         <div className={s.editBlock}></div>
-      </EditOutlined>
-      <DeleteForeverOutlined
+      </Edit>
+      <DeleteForever
         className={s.deleteTodoItem}
         onClick={() => dispatch(deleteToDo(id))}
       >
         <div className={s.imageBlock}></div>
-      </DeleteForeverOutlined>
+      </DeleteForever>
     </div>
   );
 };

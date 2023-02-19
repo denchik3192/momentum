@@ -1,9 +1,9 @@
 import React from "react";
-import { Pause, PlayArrow, Stop } from "@material-ui/icons";
 import classNames from "classnames";
 import { useState } from "react";
 import { useTimer } from "react-timer-hook";
 import s from "./timer.module.scss";
+import { Pause, PlayArrow, Stop } from "@mui/icons-material";
 
 const Timer = ({ timerActive }) => {
   const [timerValue, setTimerValue] = useState(600);

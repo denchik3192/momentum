@@ -1,8 +1,7 @@
-import { TimerSharp } from "@material-ui/icons";
-import { createSelector } from "@reduxjs/toolkit";
+
+import { HourglassBottom, MoreHoriz } from "@mui/icons-material";
 import classNames from "classnames";
 import React, { Component } from "react";
-import { MdHourglassBottom, MdMoreHoriz } from "react-icons/md/index";
 import { connect, useSelector } from "react-redux";
 import Clock from "./Clock/Clock";
 import s from "./time.module.scss";
@@ -41,7 +40,7 @@ export class Time extends Component {
     return (
       <div className={s.timeWrapper}>
         <Timer timerActive={this.state.timerActive} more={this.moreActive} />
-        <MdHourglassBottom
+        <HourglassBottom
           className={
             this.state.timerActive === true
               ? classNames(s.hourglass, s.active)
@@ -53,7 +52,7 @@ export class Time extends Component {
         {/* {this.props.time ? <Clock/> : <Clock className={classNames(s.clock, s.hide) }/>} */}
         <Clock isActive={this.props.time}/>
         
-        <MdMoreHoriz
+        <MoreHoriz
           className={
             this.state.moreActive === true
               ? classNames(s.more, s.active)

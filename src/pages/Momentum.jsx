@@ -1,10 +1,10 @@
-import { Fullscreen } from "@material-ui/icons";
 import React, { Fragment, useState } from "react";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Hedaer";
 import Main from "../components/Main/Main";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import s from "./momentum.module.scss";
+import { Fullscreen } from "@mui/icons-material";
 
 function Momentum() {
   const screen1 = useFullScreenHandle();

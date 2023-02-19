@@ -4,14 +4,10 @@ import s from "./player.module.scss";
 import playList from "./playList";
 import sound from "../../../assets/musik/Essenger, PYLOT-Offworld.mp3";
 import useSound from "use-sound";
-import {
-  NavigateBefore,
-  NavigateNext,
-  Pause,
-  PlayArrowRounded,
-} from "@material-ui/icons";
+
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { NavigateBefore, NavigateNext, Pause, PlayArrow } from "@mui/icons-material";
 
 const Player = () => {
   const [playSound, { pause }] = useSound(sound);
@@ -49,7 +45,7 @@ const Player = () => {
           {isPlaying ? (
             <Pause onClick={stopPlaySong} />
           ) : (
-            <PlayArrowRounded onClick={playSong} />
+            <PlayArrow onClick={playSong} />
           )}
           <NavigateNext />
         </div>

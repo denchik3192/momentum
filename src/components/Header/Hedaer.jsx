@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import s from "./header.module.scss";
 import Player from "./Player/Player";
 import Weather from "./Weather/Weather";
-import { WiDaySleet } from "react-icons/wi/";
+import { WiDayCloudy, WiDaySleet } from "react-icons/wi/";
 import playList from "../../data/playList";
 import Currency from "./Currency/Currency";
 import { useSelector } from "react-redux";
 import cn from "classnames";
-import { Fullscreen } from "@material-ui/icons";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
+import { Cloud } from "@mui/icons-material";
 
 const Header = (props) => {
   const handle = useFullScreenHandle();
@@ -49,7 +49,7 @@ const Header = (props) => {
         <div className={s.location}>
           {weatherData.location} {weatherData.temperature}
         </div>
-        <WiDaySleet />
+        <Cloud />
       </div>
       <Weather
         active={weatherActive}

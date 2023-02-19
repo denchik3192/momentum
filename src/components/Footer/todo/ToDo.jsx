@@ -5,11 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import ToDoItem from "./ToDoItem/ToDoItem";
 import { useState } from "react";
 import { addToDo, sortByName } from "../../../reduxTK/todoSlice";
-import { MoreHoriz } from "@material-ui/icons";
-// import Select from "react-select";
 import { selectTodosByFilter } from "../../../reduxTK/selectors/filter-selector";
 import { changeFilter } from "../../../reduxTK/filterSlice";
 import SelectComponent from "./SelectComponent";
+import { MoreHoriz } from "@mui/icons-material";
 
 const ToDo = ({ active }) => {
   const [newToDo, setNewToDo] = useState("");

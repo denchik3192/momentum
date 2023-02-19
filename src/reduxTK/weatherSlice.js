@@ -1,4 +1,3 @@
-import { SportsTennisOutlined } from "@material-ui/icons";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { fetchData } from "../API/API";
 

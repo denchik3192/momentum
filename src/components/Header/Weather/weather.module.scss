@@ -48,8 +48,10 @@
                 justify-content: space-between;
                 .editIcon {
                     position: absolute;
-                    font-size: 20px;
-                    top: 15px;
+                    // font-size: 10px;
+                    width: 20px;
+                    height: 20px;
+                    top: 5px;
                     left: 130px;
                     cursor: pointer;
                     transform: translateX(-10px);
@@ -60,8 +62,8 @@
                     cursor: pointer;
                     .editIcon {
                         position: absolute;
-                        font-size: 20px;
-                        top: 15px;
+                        // font-size: 10px;
+                        top: 2px;
                         left: 130px;
                         cursor: pointer;
                         transform: translateX(0px);
@@ -81,7 +83,7 @@
                     flex-direction: column;
                     align-items: start;
                     .inputLocation {
-                        height: 42px;
+                        height: 28px;
                         background: transparent;
                         border: none;
                         border-bottom: 1px solid var(--font-color-main);
@@ -93,6 +95,7 @@
                     
     
                     .location {
+                        font-size: 24px;
                         margin: 0;
                         color: var(--font-color-main)
                     }
