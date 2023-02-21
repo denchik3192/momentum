@@ -49,7 +49,7 @@
         position: absolute;
         height: 40px;
         width: 200px;
-        background: rgb(0, 0, 0);
+        background: #333333fc;
         border-radius: 4px;
         visibility: visible;
         opacity: 1;
@@ -67,7 +67,7 @@
             content: '';
             width: 12px;
             height: 12px;
-            background: rgb(0, 0, 0);
+            background: #333333fc;
             transform: rotate(45deg);
             left: -6px;
         }

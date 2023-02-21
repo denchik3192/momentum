@@ -20,9 +20,10 @@
     border-radius: 5px;
     background-color: var(--backgroung);
     color: var(--font-color-main);
-    transform: translateZ(+50px);
+    transition: 0.3s ease-in-out;
+    transform: translateX(+10px);
+    visibility: hidden;
     opacity: 0;
-    transition: 0.2s ease-in-out;
     border-radius: 4px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     .countdown {
@@ -55,10 +56,11 @@
         
     }
     &.active {
-        transform: translateZ(0px);
+        visibility: visible;
+        transform: translateX(0px);
         z-index: 1;
         opacity: 0.9;
-        transition: 0.2s;
+        transition: 0.2s ease-in;
     }
 }
 

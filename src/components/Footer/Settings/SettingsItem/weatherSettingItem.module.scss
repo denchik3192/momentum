@@ -1,0 +1,23 @@
+
+.weatherMainSettings {
+    display: flex;
+    margin: 20px 0 0 20px;
+   
+    .labelItem {
+        text-transform: capitalize;
+        margin-left: 10px;
+    }
+    
+}
+.applyButton {
+    border: 1px solid rgb(174, 99, 24);
+    border-radius: 4px;
+    cursor: pointer;
+    color: rgb(194, 120, 45);
+    background: transparent;
+    width: 100px;
+    height: 30px;
+    &:hover {
+        background: orange;
+    }
+}
