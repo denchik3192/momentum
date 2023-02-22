@@ -6,9 +6,17 @@
    
     .photoItem {
         border-radius: 2px;
-        width: 100px;
+        width: 120px;
         height: 70px;
-        background: rgb(132, 132, 132);
+        // background-image: url('01_small.jpg');
+        background-repeat: none;
+        background-size: cover;
+        background-position: 0;
+        cursor: pointer;
+        border: 1px solid transparent;
+        &:hover {
+            border: 1px solid white;
+        }
     }
 
 }

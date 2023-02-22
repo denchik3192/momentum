@@ -48,7 +48,7 @@ const Footer = (props) => {
         {quoteData.status === "loading" ? (
           <div>{quoteData.status}</div>
         ) : (
-          <div>{quoteData.quote}</div>
+          <div>"{quoteData.quote}"</div>
           )}
       </div>
       <div className={classNames(s.todo, isTodoSettingActive ? '' : s.hidden )} onClick={toggleToDo}>
