@@ -6,6 +6,7 @@ import weatherSlice from './weatherSlice';
 import quoteSlice from './quoteSlice';
 import settingsSlice from './settingsSlice';
 import filterSlice from './filterSlice';
+import backgroundSlice from './backgroundSlice';
 
 
 const rootReducer = combineReducers({
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
     quote: quoteSlice,
     settings: settingsSlice,
     filter: filterSlice,
+    background: backgroundSlice,
 })
 
 export const store = configureStore ({
