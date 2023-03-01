@@ -20,7 +20,7 @@ import { fetchData } from "../API/API";
 const backgroundSlise = createSlice({
   name: "background",
   initialState: {
-    backgroungNumber: "01",
+    backgroungNumber: "00",
   },
   reducers: {
     changeBG(state, action) {

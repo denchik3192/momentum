@@ -35,6 +35,7 @@ function PhotoSettings() {
         <div className={s.photoItem} style={{backgroundImage: `url(${bg})`}} onClick={changeBackground}>01</div>
         <div className={s.photoItem} style={{backgroundImage: `url(${bg2})`}} onClick={changeBackground}>02</div>
         <div className={s.photoItem} style={{backgroundImage: `url(${bg3})`}} onClick={changeBackground}>03</div>
+        <div className={s.photoItem} onClick={changeBackground}>default</div>
       </div>
       
     </Fragment>
