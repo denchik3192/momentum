@@ -5,9 +5,7 @@ export const fetchQuotes = createAsyncThunk(
     "quote/fetchQuote",
     async function (_, { rejectWithValue, dispatch }) {
         try {
-            
             const response = await fetchQuote();
-           
             // dispatch(changeQuote())
             return response;
         } catch (error) {
@@ -21,17 +19,15 @@ const  quoteSlice = createSlice({
     initialState : {
         quote: '',
         author: '',
+        lastQuotes: [],
         status: null,
         error: null,
     },
     reducers: {
-        // changeQuote(state, action) {
-        //     state.quote = action.payload;
-        // },
       },
     extraReducers: {
         [fetchQuotes.pending]: (state) => {
-            state.quote = '';
+            // state.quote = '';
             state.status = "loading";
             state.error = null;
         },
@@ -39,6 +35,7 @@ const  quoteSlice = createSlice({
             state.status = "resolved";
             state.quote = action.payload.content;
             state.author = action.payload.author;
+            state.lastQuotes.push(action.payload.content);
         },
         [fetchQuotes.rejected]: (state, action) => {
             state.status = "rejected";
