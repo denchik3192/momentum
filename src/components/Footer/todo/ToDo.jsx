@@ -12,7 +12,7 @@ import { MoreHoriz } from "@mui/icons-material";
 
 const ToDo = ({ active }) => {
   const [newToDo, setNewToDo] = useState("");
-  const [sortName, setSortName] = useState("Date");
+  const [, setSortName] = useState("Date");
   const [maximizedToDo, setMaximizedToDo] = useState(false);
   const [moreActive, setMoreActive] = useState(false);
   const [selectedTodosStatus, setSelectedTodosStatus] = useState("all");

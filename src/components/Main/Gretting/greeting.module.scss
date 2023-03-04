@@ -10,17 +10,17 @@
     }
 
     input {
-        resize: horizontal;
-        // min-width: 300px;
+        // resize: horizontal;
+        width: 200px;
         font-size: 54px;
         background: transparent;
         outline: none;
         border: none;
         color: #fff;
 
-        &:active {
-            width: auto;
-        }
+        // &:active {
+        //     width: auto;
+        // }
 
         &:focus {
             color: rgb(179, 179, 179);

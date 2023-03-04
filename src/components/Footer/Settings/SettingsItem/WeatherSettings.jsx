@@ -19,7 +19,7 @@ function WeatherSettings() {
     <>
         <h3>Weather</h3>
         {weatherSettingsList}
-        <button className={s.applyButton}type="submit">Apply</button>
+        <button className={s.applyButton} type="submit" disabled={true}>Apply</button>
     </>
   );
 }

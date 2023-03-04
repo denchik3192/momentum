@@ -1,8 +1,8 @@
-import React, { Fragment, useRef } from "react";
+import React from "react";
 import s from "./settings.module.scss";
 import cn from "classnames";
 import { useState } from "react";
-import { Link, redirect, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import GeneralSettings from "./SettingsItem/GeneralSettings";
 import PhotoSettings from "./SettingsItem/PhotoSettings";
 import ToDoSettings from "./SettingsItem/ToDoSettings";
@@ -20,7 +20,6 @@ const Settings = ({ active, setSettingsActive }) => {
   const userName = useSelector((state) => state.main.userName);
   const { setIsAuth } = useContext(AuthContext);
   const [isAccountActive, setIsAccountActive] = useState(false);
-  console.log(isAccountActive);
   const [liActiveId, setLiActiveId] = useState(1);
 
   const settingsNavList = [
@@ -30,7 +29,6 @@ const Settings = ({ active, setSettingsActive }) => {
     { id: 4, name: "weather" },
     { id: 5, name: "qoutes" },
     { id: 6, name: "audio" },
-    { id: 7, name: "language" },
   ];
 
   const onActiveLinkHandler = (id) => {

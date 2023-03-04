@@ -27,12 +27,13 @@ const Footer = (props) => {
   };
   useEffect(() => {
       dispatch(fetchQuotes());
-  }, []);
+  }, [dispatch]);
 
   const refreshQuote = () => {
     dispatch(fetchQuotes());
   };
 
+  console.log('footer render');
   return (
     <footer className={s.footer}>
       <Link

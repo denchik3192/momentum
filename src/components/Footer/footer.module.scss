@@ -33,9 +33,9 @@
         }
     }
     .settingsButton {
-        width: 35px;
-        height: 35px;
-        background-image: url('../../assets/sett.png');
+        width: 30px;
+        height: 30px;
+        background-image: url('../../assets/setting.png');
         color: aliceblue;
         background-size: 100%;
         cursor: pointer;
@@ -44,8 +44,8 @@
         transition: 0.2s ease;
     }
     .settingsButton:hover {
-        // transform: rotateZ(90deg);
-        // transition: 0.2s ease;
+        transform: rotateZ(90deg);
+        transition: 0.2s ease;
     }
     .todo {
         font-size: 20px;

@@ -1,21 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { fetchData } from "../API/API";
-
-// export const fetchWether = createAsyncThunk(
-//   "weather/fetchWether",
-//   async function (url, { rejectWithValue, dispatch }) {
-//     try {
-//       const response = await fetchData(url);
-//       if (response.cod !== 200) {
-//         throw new Error("Server Error!");
-//       }
-//       dispatch(changeLocation(url))
-//       return response;
-//     } catch (error) {
-//       return rejectWithValue(error.message);
-//     }
-//   }
-// );
+import { createSlice } from "@reduxjs/toolkit";
 
 const backgroundSlise = createSlice({
   name: "background",
@@ -27,27 +10,8 @@ const backgroundSlise = createSlice({
       state.backgroungNumber = action.payload;
     },
   },
-  // extraReducers: {
-  //   [fetchWether.pending]: (state) => {
-  //     state.status = "loading";
-  //     state.error = null;
-  //   },
-  //   [fetchWether.fulfilled]: (state, action) => {
-  //     state.status = "resolved";
-  //     state.temperature = Math.round(action.payload.main.temp);//?
-  //     state.wind = action.payload.wind.speed;
-  //     state.humidity = action.payload.main.humidity;
-  //     state.pressure = action.payload.main.pressure;
-  //     state.description = action.payload.weather[0].description;
-  //     state.location = action.payload.name;
-  //   },
-  //   [fetchWether.rejected]: (state, action) => {
-  //       state.status = 'rejected';
-  //       state.error = action.payload;
-  //   },
-  // },
 });
 
-export const {changeBG} = backgroundSlise.actions;
+export const { changeBG } = backgroundSlise.actions;
 
 export default backgroundSlise.reducer;

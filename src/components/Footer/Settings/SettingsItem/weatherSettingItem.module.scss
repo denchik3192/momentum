@@ -17,6 +17,9 @@
     background: transparent;
     width: 100px;
     height: 30px;
+    &:disabled {
+        cursor: not-allowed;
+    }
     &:hover {
         background: orange;
     }

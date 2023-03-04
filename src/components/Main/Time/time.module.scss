@@ -1,3 +1,13 @@
+:root[data-theme="light"] {
+    --backgroung: #fffffffc;
+    --font-color-main: #333333fc;
+}
+
+:root[data-theme="dark"] {
+    --backgroung: #333333fc;
+    --font-color-main: #eeeeee;
+}
+
 .timeWrapper {
     position: relative;
     display: flex;
@@ -49,7 +59,8 @@
         position: absolute;
         height: 40px;
         width: 200px;
-        background: #333333fc;
+        background: var(--backgroung);
+        color: var(--font-color-main);
         border-radius: 4px;
         visibility: visible;
         opacity: 1;
@@ -67,7 +78,7 @@
             content: '';
             width: 12px;
             height: 12px;
-            background: #333333fc;
+            background: var(--backgroung);
             transform: rotate(45deg);
             left: -6px;
         }

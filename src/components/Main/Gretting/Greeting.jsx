@@ -1,5 +1,4 @@
 import cn from "classnames";
-import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { changeUserName } from "../../../reduxTK/mainSlice";
@@ -23,14 +22,11 @@ const Greeting = () =>{
     return timeOfDay;
   };
 
-  // const time = getTimeOfDay();
-
   return (
     <div className={cn(s.greeting, isQuoteSettingActive ? '' : s.hidden) }>
       Good {getTimeOfDay()},{" "}{/* TODO remove function usage*/}
       <input
         type="text"
-        size="1"
         value={userName}
         onChange={onUserNameChange}
       />

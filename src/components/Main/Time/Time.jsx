@@ -1,9 +1,7 @@
 import { HourglassBottom, MoreHoriz } from "@mui/icons-material";
 import classNames from "classnames";
 import React, { Component } from "react";
-import { connect, useSelector } from "react-redux";
-import ReactSelect from "react-select";
-import ReactSwitch from "react-switch";
+import { connect } from "react-redux";
 import Clock from "./Clock/Clock";
 import s from "./time.module.scss";
 import Timer from "./Timer/Timer";
@@ -64,7 +62,7 @@ export class Time extends Component {
           onClick={this.toggleMoreActive}
         />
         <div className={classNames(s.timeformat,  this.state.moreActive === true ?  '': s.hidden)}>
-          <label for="toggleSwitch">{this.state.timeFormat}-hour clock</label>
+          <label htmlFor="toggleSwitch">{this.state.timeFormat}-hour clock</label>
           <input
             type="checkbox"
             onChange={this.handleCheckbox}

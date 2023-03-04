@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import s from "./weather.module.scss";
 import cn from "classnames";
-import { changeLocation, fetchWether } from "../../../reduxTK/weatherSlice";
+import { fetchWether } from "../../../reduxTK/weatherSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Edit, MoreHoriz } from "@mui/icons-material";
+import { Edit } from "@mui/icons-material";
 import { WiDayCloudy } from "react-icons/wi";
 
 const Weather = ({ active, setActive }) => {
@@ -57,9 +57,6 @@ const Weather = ({ active, setActive }) => {
               <span className={s.weatherDescription}>
                 {weatherData.description}
               </span>
-            </div>
-            <div className={s.more}>
-              <MoreHoriz />
             </div>
           </div>
 
