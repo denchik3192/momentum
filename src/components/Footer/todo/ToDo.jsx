@@ -16,7 +16,7 @@ const ToDo = ({ active }) => {
   const [maximizedToDo, setMaximizedToDo] = useState(false);
   const [moreActive, setMoreActive] = useState(false);
   const [selectedTodosStatus, setSelectedTodosStatus] = useState("all");
-  
+
   const todos = useSelector(selectTodosByFilter);
   const dispatch = useDispatch();
 
@@ -63,7 +63,7 @@ const ToDo = ({ active }) => {
   return (
     <div
       className={
-        active ? cn(s.todo, s.active, maximizedToDo ? s.maximized : "") : s.todo //fix long classnames
+        cn(s.todo, active ? s.active : "", maximizedToDo ? s.maximized : "")
       }
     >
       <div className={s.todoHedaer}>
@@ -80,19 +80,29 @@ const ToDo = ({ active }) => {
         <div className={s.status}>
           <SelectComponent onSelectHandle={onSelectHandle} />
           {/* fix */}
-          <button className={cn(selectedTodosStatus === 'all' ? s.active : '')} onClick={() => selectTodosStatus("all")}>All</button> 
-          <button className={cn( selectedTodosStatus === 'active' ? s.active : '')} onClick={() => selectTodosStatus("active")}>
+          <button
+            className={cn(selectedTodosStatus === "all" ? s.active : "")}
+            onClick={() => selectTodosStatus("all")}
+          >
+            All
+          </button>
+          <button
+            className={cn(selectedTodosStatus === "active" ? s.active : "")}
+            onClick={() => selectTodosStatus("active")}
+          >
             Active
           </button>
-          <button className={cn( selectedTodosStatus === 'complited' ? s.active : '')} onClick={() => selectTodosStatus("complited")}>
+          <button
+            className={cn(selectedTodosStatus === "complited" ? s.active : "")}
+            onClick={() => selectTodosStatus("complited")}
+          >
             Complited
           </button>
         </div>
       ) : (
         <div></div>
       )}
-      {todosList}
-
+      <div className={s.todosListWrapper}>{todosList}</div>
       <div className={s.todoFooter}>
         <input
           type="text"

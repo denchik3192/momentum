@@ -10,25 +10,9 @@
     --todo-status-color-main: #d6d6d6fc;
 }
 
-.todo {
-    position: absolute;
-    z-index: -2;
-    padding: 20px;
-    right: 10px;
-    bottom: 70px;
-    height: 30%;
-    width: 20em;
-    border-radius: 4px;
-    background-color: var(--backgroung);
-    color: var(--font-color-main);
-    transform: translateY(+50px);
-    opacity: 0;
-    transition: 0.2s ease;
-    box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.24), 0px 9px 18px rgba(0, 0, 0, 0.18);
-    overflow: auto;
-
+@mixin scrollbarr {
     &::-webkit-scrollbar {
-        width: 12px;
+        width: 9px;
     }
 
     &::-webkit-scrollbar-track {
@@ -39,16 +23,40 @@
         background-color: #5d5d5d;
         border-radius: 20px;
         border: 3px solid var(--backgroung)
-            /* отступ вокруг бегунка */
     }
+  }
+
+.todo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    right: 10px;
+    bottom: 70px;
+    z-index: -2;
+    padding: 20px;
+    height: 300px;
+    width: 20em;
+    border-radius: 4px;
+    background-color: var(--backgroung);
+    color: var(--font-color-main);
+    transform: translateY(+50px);
+    opacity: 0;
+    transition: 0.2s ease;
+    box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.24), 0px 9px 18px rgba(0, 0, 0, 0.18);
 
     &.active {
         transform: translateY(0px);
         z-index: 1;
         opacity: 1;
         transition: 0.4s ease;
-
+        .todosListWrapper {
+            margin-top: 10px;
+            flex-grow: 1;
+        }
+        
         &.maximized {
+            justify-content: start;
             width: 40%;
             height: 80%;
             transition: 0.4s ease;
@@ -62,7 +70,6 @@
 
                 .moreModal {
                     &:hover::before {
-
                         top: 24px;
                     }
                 }
@@ -70,11 +77,10 @@
 
             .status {
                 display: flex;
-                max-width: 100%;
                 align-items: center;
                 justify-content: space-between;
+                max-width: 100%;
                 margin: 0 0 20px 10px;
-
 
                 button {
                     width: 100px;
@@ -153,6 +159,11 @@
         }
     }
 
+    .todosListWrapper {
+        @include scrollbarr();
+        overflow-y: auto;
+    }
+
     #toDoInput {
         display: inline-block;
         margin-top: 10px;
@@ -177,11 +188,6 @@
         }
     }
 
-    .toDoButton {
-        width: 100px;
-        height: 50px;
-    }
-
     &::after {
         position: absolute;
         content: '';
@@ -197,4 +203,5 @@
 
 .doneTodos {
     text-decoration: line-through;
+    color: var(--backgroung);
 }

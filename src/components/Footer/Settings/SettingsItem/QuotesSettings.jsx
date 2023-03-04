@@ -5,7 +5,7 @@ function QuotesSettings() {
   const lastQuotes = useSelector((state) => state.quote.lastQuotes);
   const quotesList = lastQuotes.map((quote, index) => (
     //fix inline styles
-  <p style={{textAlign: 'left'}}>
+  <p style={{textAlign: 'left'}} key={index}>
       {index + 1}. "{quote}""
     </p>
   ));
