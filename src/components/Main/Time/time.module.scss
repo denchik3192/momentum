@@ -134,3 +134,66 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .timeWrapper {
+    
+        .hourglass,
+        .more {
+            visibility: hidden;
+            height: 1em;
+            width: 1em;
+        }
+    
+        
+    
+        .timeformat {
+            margin-left: 590px;
+            height: 40px;
+            width: 160px;
+    
+            &::after {
+                width: 10px;
+                height: 10px;
+            }
+            
+            .toggleSwitch {
+                margin-left: 10px;
+                position: relative;
+                width: 38px;
+                height: 20px;
+                appearance: none;
+                background: #ffa200;
+                outline: none;
+                border-radius: 260px;
+                transition: .2s;
+                cursor: pointer;
+            }
+            
+            .toggleSwitch:checked[type="checkbox"] {
+                transition: .2s ease-in-out;
+                background: linear-gradient(90deg, #0099c0,#3dd5a8);
+            }
+            
+            .toggleSwitch:before {
+                content: "";
+                position: absolute;
+                width: 14px;
+                height: 14px;
+                border-radius: 190px;
+                top: 15%;
+                left: 10%;
+                background: #ffffff;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+                transition: .2s;
+            }
+            
+            .toggleSwitch:checked[type=checkbox]:before {
+                transition: .2s;
+                left: 20px;
+                background-color: #ffffff;
+            }
+        }
+    }
+    
+}

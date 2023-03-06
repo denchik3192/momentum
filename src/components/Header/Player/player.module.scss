@@ -45,3 +45,52 @@
         }
     }
 }
+
+@media (max-width: 1024px) {
+    .playerWrapper {
+        max-width: 220px;
+        height: 70px;
+    
+        .player {
+            .playContainer {
+                svg {
+                    width: 51px;
+                    height: 25px;
+                    cursor: pointer;
+                }
+            }
+        }
+    
+        .playList {
+            margin: 0;
+            
+            .playListItem {
+                font-size: 13px;
+            }
+        }
+    }
+}
+
+@media (max-width: 420px) {
+    .playerWrapper {
+        max-width: 120px;
+        height: 140px;
+    
+        .player {
+            .playContainer {
+                svg {
+                    width: 51px;
+                    height: 25px;
+                }
+            }
+        }
+    
+        .playList {
+            margin: 0;
+            
+            .playListItem {
+                font-size: 10px;
+            }
+        }
+    }
+  }

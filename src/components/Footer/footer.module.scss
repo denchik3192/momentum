@@ -5,6 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     .qoute {
         max-width: 70%;
         // height: 50px;
@@ -15,23 +16,27 @@
         transition: 0.5s;
         opacity: 1;
         transition: 0.5s ease-in;
+
         &.hidden {
             opacity: 0;
             transition: 0.5s ease-in;
             visibility: hidden;
         }
+
         .quoteButton {
             font-size: 26px;
             width: 100px;
             cursor: pointer;
             transition: 0.3s;
             color: rgba(255, 255, 255, 0.6);
-            &:hover{
+
+            &:hover {
                 color: rgb(255, 255, 255);
                 transition: 0.3s;
             }
         }
     }
+
     .settingsButton {
         width: 30px;
         height: 30px;
@@ -43,24 +48,42 @@
         fill: rgb(239, 239, 239);
         transition: 0.2s ease;
     }
+
     .settingsButton:hover {
         transform: rotateZ(90deg);
         transition: 0.2s ease;
     }
+
     .todo {
         font-size: 20px;
         position: relative;
         cursor: pointer;
         transition: 0.2s;
+
         &.hidden {
             opacity: 0;
             transition: 0.5s ease-in;
             visibility: hidden;
-        } 
+        }
     }
+
     .todo:hover {
         color: rgb(214, 214, 214);
         transition: 0.2s;
     }
-    
+
+}
+
+
+@media (max-width: 1024px) {
+    .footer {
+        .qoute {
+            font-size: 16px;
+
+            .quoteButton {
+                font-size: 20px;
+            }
+        }
+    }
+
 }
