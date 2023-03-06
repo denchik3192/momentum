@@ -38,10 +38,6 @@ const Header = (props) => {
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
       />
-      {/* <Link to="/todopage"> ToDoPage </Link>
-      <Link to="/login"> Login </Link> */}
-      {/* <Fullscreen/> */}
-      {/* <Currency /> */}
       <div
         className={cn(s.weatherIcon, isWeatherSettingActive ? "" : s.hidden)}
         onClick={toggleWeather}
