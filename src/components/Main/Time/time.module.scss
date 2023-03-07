@@ -146,9 +146,10 @@
         }
     
         .timeformat {
-            margin-left: 590px;
-            height: 40px;
-            width: 160px;
+            margin-left: 570px;
+            height: 35px;
+            max-width: 140px;
+            font-size: smaller;
     
             &::after {
                 width: 10px;
@@ -199,7 +200,7 @@
     .timeWrapper {
         .timeformat {
             top: -20px;
-            margin-left: 220px;
+            margin-left: 180px;
     
             &::after {
                 bottom: -5px;

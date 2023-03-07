@@ -89,8 +89,9 @@
 
 @media (max-width: 420px) {
     .footer {
+        min-height: 60px;
         .qoute {
-            font-size: 8px;
+            font-size: 1em;
 
             .quoteButton {
                 font-size: 20px;

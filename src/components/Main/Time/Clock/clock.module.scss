@@ -27,6 +27,11 @@
 
 @media (max-width: 420px) {
     .clock {
+        font-size: 8em;
+    }
+  }
+@media (max-width: 360px) {
+    .clock {
         font-size: 6em;
     }
   }
