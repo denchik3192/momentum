@@ -57,3 +57,30 @@
     left: 22px;
     background-color: #ffffff;
 }
+
+@media (max-width: 420px) {
+    .settingsItem {
+        height: 35px;
+        padding: 2px;
+        font-size: 14px;
+    }
+    
+    .settingsItem input[type=checkbox] {
+        width: 38px;
+        height: 20px;  
+    }
+    
+    
+    .settingsItem input[type=checkbox]:before {
+       
+        top: 18%;
+        left: 10%;
+       
+    }
+    
+    .settingsItem input[type=checkbox]:checked[type=checkbox]:before {
+       
+        left: 20px;
+       
+    }
+}

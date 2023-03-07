@@ -67,13 +67,13 @@ const Weather = ({ active, setActive }) => {
             </div>
             <div className={s.additionalDescr}>
               <div className={s.wind}>
-                Wind: <b>{weatherData.wind}m/s</b>
+                Wind: <b>{weatherData.wind} m/s</b>
               </div>
               <div className={s.humidity}>
-                Humidity: <b>{weatherData.humidity}</b>
+                Humidity: <b>{weatherData.humidity} %</b>
               </div>
               <div className={s.humidity}>
-                Pressure: <b>{weatherData.pressure}</b>
+                Pressure: <b>{weatherData.pressure}  atm</b>
               </div>
             </div>
           </div>

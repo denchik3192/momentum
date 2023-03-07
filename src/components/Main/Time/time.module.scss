@@ -145,8 +145,6 @@
             width: 1em;
         }
     
-        
-    
         .timeformat {
             margin-left: 590px;
             height: 40px;
@@ -195,5 +193,20 @@
             }
         }
     }
+}
+
+@media (max-width: 420px) {
+    .timeWrapper {
+        .timeformat {
+            top: -20px;
+            margin-left: 220px;
     
+            &::after {
+                bottom: -5px;
+                left: 110px;
+                width: 10px;
+                height: 10px;
+            }  
+        }
+    }   
 }

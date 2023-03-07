@@ -85,5 +85,17 @@
             }
         }
     }
+}
+
+@media (max-width: 420px) {
+    .footer {
+        .qoute {
+            font-size: 8px;
+
+            .quoteButton {
+                font-size: 20px;
+            }
+        }
+    }
 
 }
