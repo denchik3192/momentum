@@ -21,20 +21,6 @@ $text-color: rgba(255, 255, 255, 0.983);
 }
 
 body {
-  // background: var(--background-color);
-  // background-image: url('./../public/bg.jpg');
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // height: 100vh;
   margin: 0;
 }
 
-@media (max-width: 420px) {
-  .app {
-    .fullscreen {
-      svg {
-        // display: none;
-      }
-    }
-  }
-}
