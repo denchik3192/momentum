@@ -11,7 +11,7 @@ function QuotesSettings() {
   ));
   return (
     <Fragment>
-      <h2>Last Qoutes</h2>
+      <h2>Latest Quotes</h2>
       {quotesList}
     </Fragment>
   );

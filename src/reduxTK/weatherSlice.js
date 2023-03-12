@@ -9,7 +9,7 @@ export const fetchWether = createAsyncThunk(
       if (response.cod !== 200) {
         throw new Error("Server Error!");
       }
-      dispatch(changeLocation(url))
+      dispatch(changeLocation(url));
       return response;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -41,7 +41,7 @@ const weatherSlise = createSlice({
     },
     [fetchWether.fulfilled]: (state, action) => {
       state.status = "resolved";
-      state.temperature = Math.round(action.payload.main.temp);//?
+      state.temperature = Math.round(action.payload.main.temp); //?
       state.wind = action.payload.wind.speed;
       state.humidity = action.payload.main.humidity;
       state.pressure = action.payload.main.pressure;
@@ -49,12 +49,12 @@ const weatherSlise = createSlice({
       state.location = action.payload.name;
     },
     [fetchWether.rejected]: (state, action) => {
-        state.status = 'rejected';
-        state.error = action.payload;
+      state.status = "rejected";
+      state.error = action.payload;
     },
   },
 });
 
-export const {changeLocation} = weatherSlise.actions;
+export const { changeLocation, changeSettingsStatus } = weatherSlise.actions;
 
 export default weatherSlise.reducer;

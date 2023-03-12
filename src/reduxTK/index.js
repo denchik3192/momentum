@@ -7,13 +7,14 @@ import quoteSlice from './quoteSlice';
 import settingsSlice from './settingsSlice';
 import filterSlice from './filterSlice';
 import backgroundSlice from './backgroundSlice';
-
+import weatherSettingsSlice from './weatherSettingsSlice';
 
 const rootReducer = combineReducers({
     main: mainSlice,
     todo: todoSlice,
     weather: weatherSlice,
     quote: quoteSlice,
+    weathersettings: weatherSettingsSlice,
     settings: settingsSlice,
     filter: filterSlice,
     background: backgroundSlice,

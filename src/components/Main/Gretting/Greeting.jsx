@@ -31,7 +31,6 @@ const Greeting = () =>{
         value={userName}
         onChange={onUserNameChange}
       />
-      .
        {/* <span class="input" role="textbox" contenteditable>{userName}</span> */}
     </div>
     

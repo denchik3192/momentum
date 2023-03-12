@@ -11,8 +11,8 @@ const Weather = ({ active, setActive }) => {
   const [lacationEdit, setLocationEdit] = useState(false);
   const dispatch = useDispatch();
   const weatherData = useSelector((state) => state.weather);
+  const weathersettings = useSelector((state) => state.weathersettings);
   const [lacation, setLocation] = useState(weatherData.lacation); //fix
-
   useEffect(() => {
     dispatch(fetchWether());
   }, [dispatch]);
@@ -29,7 +29,7 @@ const Weather = ({ active, setActive }) => {
 
   return (
     <div
-      className={active ? cn(s.weatherWrapper, s.active) : s.weatherWrapper}
+      className={cn(s.weatherWrapper, active ? s.active : "")}
       onClick={() => setActive(false)}
     >
       <div
@@ -50,10 +50,7 @@ const Weather = ({ active, setActive }) => {
                 <h3 className={s.location}>{weatherData.location}</h3>
               )}
 
-              <Edit
-                className={s.editIcon}
-                onClick={toggleLocationEdit}
-              />
+              <Edit className={s.editIcon} onClick={toggleLocationEdit} />
               <span className={s.weatherDescription}>
                 {weatherData.description}
               </span>
@@ -66,18 +63,29 @@ const Weather = ({ active, setActive }) => {
               <WiDayCloudy />
             </div>
             <div className={s.additionalDescr}>
-              <div className={s.wind}>
-                Wind: <b>{weatherData.wind} m/s</b>
-              </div>
-              <div className={s.humidity}>
-                Humidity: <b>{weatherData.humidity} %</b>
-              </div>
-              <div className={s.humidity}>
-                Pressure: <b>{weatherData.pressure}  atm</b>
-              </div>
+              {weathersettings.wind === true ? (
+                <div className={s.wind}>
+                  Wind: <b>{weatherData.wind} m/s</b>
+                </div>
+              ) : (
+                 <div></div>
+              )}
+              {weathersettings.humidity === true ? (
+                <div className={s.humidity}>
+                  Humidity: <b>{weatherData.humidity} %</b>
+                </div>
+               ) : (
+                <div></div>
+              )} 
+              {weathersettings.pressure === true ? (
+                <div className={s.humidity}>
+                  Pressure: <b>{weatherData.pressure} atm</b>
+                </div>
+               ) : (
+                <div></div>
+              )}
             </div>
           </div>
-          {/* <div className={s.weatherError}></div> */}
         </section>
         {weatherData.error}
       </div>
