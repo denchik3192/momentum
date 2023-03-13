@@ -1,20 +1,13 @@
 import React, { useContext } from "react";
-import { useEffect } from "react";
-import { useState } from "react";
 import s from "./auth.module.scss";
 import { AuthContext } from "../../context/";
 import { useForm } from "react-hook-form";
-import { logRoles } from "@testing-library/react";
-import { changeUserName } from "../../reduxTK/mainSlice";
-import { useDispatch } from "react-redux";
 
 const Auth = () => {
-  const dispatch = useDispatch()
-  const { isAuth, setIsAuth } = useContext(AuthContext);
+  const { setIsAuth } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors, isValid },
     reset,
   } = useForm({
