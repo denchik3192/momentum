@@ -18,7 +18,7 @@ function WeatherSettings() {
   
   const weatherSettingsList = weatherSettings.map((el) => {
     return (
-      <div className={s.weatherMainSettings}>
+      <div className={s.weatherMainSettings} key={el.id}>
         <input
           className={s.item}
           type="checkbox"

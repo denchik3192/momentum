@@ -5,7 +5,7 @@ export const weatherSettingsSlice = createSlice({
   initialState: {
     weatherSettingsStatus: [
       { id: 1, name: "wind", checked: true },
-      { id: 2, name: "humidity", checked: false },
+      { id: 2, name: "humidity", checked: true },
       { id: 3, name: "pressure", checked: true },
       { id: 4, name: "description", checked: true },
     ],
