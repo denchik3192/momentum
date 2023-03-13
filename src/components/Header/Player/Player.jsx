@@ -1,10 +1,9 @@
-import classNames from "classnames";
-import React, { useEffect } from "react";
+import cn from "classnames";
+import React from "react";
 import s from "./player.module.scss";
 import playList from "./playList";
 import sound from "../../../assets/musik/Essenger, PYLOT-Offworld.mp3";
 import useSound from "use-sound";
-
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import {
@@ -25,7 +24,7 @@ const Player = () => {
   const PlayListItem = ({ id, songName }) => {
     return (
       <li
-        className={classNames(s.playListItem, isPlaying ? s.active : "")}
+        className={cn(s.playListItem, isPlaying ? s.active : "")}
         key={id}
       >
         {songName}
@@ -49,7 +48,7 @@ const Player = () => {
 
   return (
     <div
-      className={classNames(
+      className={cn(
         s.playerWrapper,
         isPlayerSettingActive ? "" : s.hidden
       )}

@@ -11,6 +11,20 @@
     --font-color-main: #eeeeee;
     --font-color-main2: #aeaeae;
 }
+@mixin scrollbar {
+    .settingsView::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .settingsView::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .settingsView::-webkit-scrollbar-thumb {
+        background-color: #5d5d5d;
+        border-radius: 20px;
+    }
+}
 
 .settingsWrapper {
     position: absolute;
@@ -74,7 +88,6 @@
             height: 100%;
             display: flex;
 
-
             .settingsNav {
                 width: 40%;
                 margin-left: 10px;
@@ -115,8 +128,6 @@
 
                 }
 
-
-
                 .accountName {
                     width: 100px;
                     padding: 0;
@@ -127,9 +138,6 @@
                     padding: 0;
                     margin-bottom: 120px;
                 }
-
-
-
 
                 .navItem {
 
@@ -187,23 +195,8 @@
             }
         }
 
-        .settingsView::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .settingsView::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .settingsView::-webkit-scrollbar-thumb {
-            background-color: #5d5d5d;
-            /* цвет бегунка */
-            border-radius: 20px;
-            /* округлось бегунка */
-            // border: 3px solid orange;  /* отступ вокруг бегунка */
-        }
+       @include scrollbar;
     }
-
 }
 
 @media (max-width: 768px) {
@@ -255,10 +248,7 @@
                                 opacity: 0;
                             }
                         }
-    
                     }
-    
-    
     
                     .accountName {
                         width: 100px;
@@ -270,10 +260,7 @@
                         padding: 0;
                         margin-bottom: 120px;
                     }
-    
-    
-    
-    
+
                     .navItem {
     
                         list-style: none;
@@ -329,22 +316,7 @@
                     text-align: left;
                 }
             }
-    
-            .settingsView::-webkit-scrollbar {
-                width: 6px;
-            }
-    
-            .settingsView::-webkit-scrollbar-track {
-                background: transparent;
-            }
-    
-            .settingsView::-webkit-scrollbar-thumb {
-                background-color: #5d5d5d;
-                /* цвет бегунка */
-                border-radius: 20px;
-                /* округлось бегунка */
-                // border: 3px solid orange;  /* отступ вокруг бегунка */
-            }
+            @include scrollbar;
         }
     
     }
@@ -360,7 +332,6 @@
     
                 height: 100%;
                 display: flex;
-    
     
                 .settingsNav {
                     width: 30%;
@@ -402,8 +373,6 @@
     
                     }
     
-    
-    
                     .accountName {
                         width: 100px;
                         padding: 0;
@@ -414,10 +383,7 @@
                         padding: 0;
                         margin-bottom: 120px;
                     }
-    
-    
-    
-    
+   
                     .navItem {
     
                         list-style: none;
@@ -473,23 +439,7 @@
                     text-align: left;
                 }
             }
-    
-            .settingsView::-webkit-scrollbar {
-                width: 6px;
-            }
-    
-            .settingsView::-webkit-scrollbar-track {
-                background: transparent;
-            }
-    
-            .settingsView::-webkit-scrollbar-thumb {
-                background-color: #5d5d5d;
-                /* цвет бегунка */
-                border-radius: 20px;
-                /* округлось бегунка */
-                // border: 3px solid orange;  /* отступ вокруг бегунка */
-            }
+            @include scrollbar;
         }
-    
     }
 }

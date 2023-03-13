@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { ThemeContext, themes } from "../context/ThemeContext"
 
-
 const getTheme = () => {
     const theme = `${window?.localStorage?.getItem('theme')}`
     if (Object.values(themes).includes(theme)) return theme
@@ -11,7 +10,6 @@ const getTheme = () => {
 
     return themes.dark
 }
-
 const ThemeProvider = ({ children }) => {
     const [ theme, setTheme] = useState(getTheme)
 

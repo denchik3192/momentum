@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.scss";
 import { AuthContext } from "./context";
 import { BrowserRouter } from "react-router-dom";
@@ -10,7 +10,6 @@ import bg03 from "./components/Footer/Settings/SettingsItem/03_small.jpg";
 import bg01 from "./components/Footer/Settings/SettingsItem/01_small.jpg";
 
 function App() {
-  const [isImageLoading, setIsImageLoading] = useState(false);
   const [isAuth, setIsAuth] = useState(false);
   const backgroundNumber = useSelector(
     (state) => state.background.backgroungNumber
@@ -20,23 +19,7 @@ function App() {
     if (localStorage.getItem("auth")) {
       setIsAuth(true);
     }
-
-    // const loadImage = (src) => {
-    //   src = backgroundNumber;
-    //   setIsImageLoading(true);
-  
-    //   let img = new Image()
-    //   img.src = `./components/Footer/Settings/SettingsItem/${src}_small.jpg`;
-    //   img.onload = () => {
-    //     this.setState({ isLoading: false })
-    //   }
-  
-      
-    //   const background = document.querySelector("body");
-    //   background.style.backgroundImage = `url("${img.src}")`;
-    // }
-
-    // loadImage()
+    
     const background = document.querySelector(".app .fullscreen");
 
     if (backgroundNumber === "02") {
