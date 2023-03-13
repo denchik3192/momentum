@@ -11,8 +11,9 @@ const Weather = ({ active, setActive }) => {
   const [lacationEdit, setLocationEdit] = useState(false);
   const dispatch = useDispatch();
   const weatherData = useSelector((state) => state.weather);
-  const weathersettings = useSelector((state) => state.weathersettings);
+  const weathersettings = useSelector((state) => state.weathersettings.weatherSettingsStatus);
   const [lacation, setLocation] = useState(weatherData.lacation); //fix
+
   useEffect(() => {
     dispatch(fetchWether());
   }, [dispatch]);
@@ -63,21 +64,21 @@ const Weather = ({ active, setActive }) => {
               <WiDayCloudy />
             </div>
             <div className={s.additionalDescr}>
-              {weathersettings.wind === true ? (
+              {weathersettings[0].checked === true ? (
                 <div className={s.wind}>
                   Wind: <b>{weatherData.wind} m/s</b>
                 </div>
               ) : (
                  <div></div>
               )}
-              {weathersettings.humidity === true ? (
+              {weathersettings[1].checked === true ? (
                 <div className={s.humidity}>
                   Humidity: <b>{weatherData.humidity} %</b>
                 </div>
                ) : (
                 <div></div>
               )} 
-              {weathersettings.pressure === true ? (
+              {weathersettings[2].checked === true ? (
                 <div className={s.humidity}>
                   Pressure: <b>{weatherData.pressure} atm</b>
                 </div>
