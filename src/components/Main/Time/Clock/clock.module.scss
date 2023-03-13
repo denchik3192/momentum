@@ -1,17 +1,37 @@
+.clock {
+    position: relative;
+    cursor: default;
+    font-size: 1050%;
+    padding: 0px 20px 0 20px;
+    opacity: 1;
+    transition: 0.5s ease-in;
+
+    &.hidden {
+        opacity: 0;
+        transition: 0.5s ease-in-out;
+    }
+}
+
+@media (max-width: 1400px) {
 
     .clock {
-        position: relative;
-        cursor: default;
-        font-size: 1050%;
-        padding: 0px 20px 0 20px;
-        opacity: 1;
-        transition: 0.5s ease-in;
-        // transform: scale(1);
-        
-        &.hidden {
-            opacity: 0;
-            transition: 0.5s ease-in-out;
-            // transform: scale(1.5, 1);
-        }
+        font-size: 9em;
     }
-    
+}
+@media (max-width: 768px) {
+
+    .clock {
+        font-size: 8em;
+    }
+}
+
+@media (max-width: 420px) {
+    .clock {
+        font-size: 8em;
+    }
+  }
+@media (max-width: 360px) {
+    .clock {
+        font-size: 6em;
+    }
+  }

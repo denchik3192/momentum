@@ -37,7 +37,7 @@ function App() {
     // }
 
     // loadImage()
-    const background = document.querySelector("body");
+    const background = document.querySelector(".app .fullscreen");
 
     if (backgroundNumber === "02") {
       background.style.backgroundImage = `url("${bg02}")`;

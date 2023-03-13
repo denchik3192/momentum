@@ -39,3 +39,25 @@
 .weatherIcon:hover {
     cursor: pointer;
 }
+
+@media (max-width: 1024px) {
+    .weatherIcon {
+        width: 200px;
+        font-size: 30px;
+    
+        & .location {
+            font-size: 18px;
+        }
+    }
+}
+
+@media (max-width: 420px) {
+    .weatherIcon {
+        max-width: 100px;
+        font-size: 30px;
+    
+        & .location {
+            font-size: 18px;
+        }
+    }
+  }

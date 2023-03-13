@@ -1,25 +1,44 @@
-
 import React from "react";
-import { useSelector } from "react-redux";
-import s from './weatherSettingItem.module.scss'
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { selectsettingsStatus } from "../../../../reduxTK/selectors/weather-settings-selector";
+import { changeSettingsStatus } from "../../../../reduxTK/weatherSettingsSlice";
+
+import s from "./weatherSettingItem.module.scss";
 
 function WeatherSettings() {
-  const weatherData = useSelector((state) => state.weather);
+  const weatherSettings = useSelector(selectsettingsStatus);
+  const dispatch = useDispatch();
 
-  const weatherSettingsList = Object.keys(weatherData).slice(0, -2).map((el) => {
+  console.log(weatherSettings);
+
+  const handleWeatherSettings = (e) => {
+      dispatch(changeSettingsStatus (e.target.name));
+  };
+  
+  const weatherSettingsList = weatherSettings.map((el) => {
     return (
-      <div div className={s.weatherMainSettings}>
-        <input className={s.item} type="checkbox" name={el} id={el} checked={true}/>
-        <label className={s.labelItem} htmlFor={el}>{el}</label>
+      <div className={s.weatherMainSettings} key={el.id}>
+        <input
+          className={s.item}
+          type="checkbox"
+          name={el.name}
+          key={el.id}
+          id={el.id}
+          checked={el.checked}
+          onChange={handleWeatherSettings}
+        />
+        <label className={s.labelItem} htmlFor={el.name}>
+          {el.name}
+        </label>
       </div>
     );
   });
 
   return (
     <>
-        <h3>Weather</h3>
-        {weatherSettingsList}
-        <button className={s.applyButton} type="submit" disabled={true}>Apply</button>
+      <h3>Weather</h3>
+      {weatherSettingsList}
     </>
   );
 }

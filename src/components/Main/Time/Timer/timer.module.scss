@@ -64,3 +64,70 @@
     }
 }
 
+@media (max-width:768px) {
+    
+    .timer {
+        position: absolute;
+        padding: 20px;
+        max-width: 120px;
+        height: 120px;
+        margin-right: 590px;
+        h3 {
+            margin-bottom: 5px;
+        }
+        div {
+            font-size: 0.8em;
+        }
+        
+        .countdown {
+            font-size: 1.5em;
+        }
+        .tmerMinutes{
+           
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 0.8em;
+            
+        }
+        .timerIcons {
+            margin-top: 10px;
+            width: 1em;
+            height: 1em;
+        }
+    } 
+}
+
+@media (max-width: 420px) {
+    
+    .timer {
+        top: -140px;
+        max-width: 120px;
+        height: 120px;
+        margin-right: 180px;
+        h3 {
+            margin-bottom: 5px;
+        }
+        div {
+            font-size: 0.8em;
+        }
+        
+        .countdown {
+            font-size: 1.5em;
+        }
+        .tmerMinutes{
+           
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 0.8em;
+            
+        }
+        .timerIcons {
+            margin-top: 10px;
+            width: 1em;
+            height: 1em;
+        }
+    } 
+}
+

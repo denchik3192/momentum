@@ -24,14 +24,17 @@ const Greeting = () =>{
 
   return (
     <div className={cn(s.greeting, isQuoteSettingActive ? '' : s.hidden) }>
-      Good {getTimeOfDay()},{" "}{/* TODO remove function usage*/}
+      {/* Good {getTimeOfDay()},  */}
+      Good {getTimeOfDay()}, 
       <input
         type="text"
         value={userName}
         onChange={onUserNameChange}
       />
-      .
+       {/* <span class="input" role="textbox" contenteditable>{userName}</span> */}
     </div>
+    
+      
   );
 }
 

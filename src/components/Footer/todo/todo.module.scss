@@ -205,3 +205,29 @@
     text-decoration: line-through;
     color: var(--backgroung);
 }
+
+
+@media (max-width: 420px) {
+    .todo {
+        bottom: 100px;
+        height: 280px;
+        width: 85%;
+       
+        &.active {
+            
+            &.maximized {
+                width: 85%;
+                height: 70%;
+        
+                .todoHedaer {
+    
+                    .moreModal {
+                        &:hover::before {
+                            top: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+  }

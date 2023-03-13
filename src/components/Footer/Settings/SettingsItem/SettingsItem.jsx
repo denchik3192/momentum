@@ -4,20 +4,24 @@ import { useDispatch } from "react-redux";
 import { toggleSetting } from "../../../../reduxTK/settingsSlice";
 import s from "./settingsItem.module.scss";
 
-const SettingsItem = ({name, id, checked, setSettingsItem}) => {
+const SettingsItem = ({ name, id, checked, setSettingsItem }) => {
   const [isChecked, setIsChecked] = useState(checked);
   const dispatch = useDispatch();
 
   const handleCheckbox = () => {
-    setIsChecked(!isChecked)
+    setIsChecked(!isChecked);
     dispatch(toggleSetting(id));
-  }
+  };
   return (
-    
-      <div className={s.settingsItem}>
-        <span>{name}</span>
-        <input type="checkbox" id={id} checked={isChecked ===checked? checked: !checked} onChange={handleCheckbox}/>
-      </div>
+    <div className={s.settingsItem}>
+      <span>{name}</span>
+      <input
+        type="checkbox"
+        id={id}
+        checked={isChecked === checked ? checked : !checked}
+        onChange={handleCheckbox}
+      />
+    </div>
   );
 };
 

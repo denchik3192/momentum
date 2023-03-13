@@ -13,13 +13,13 @@ export const settingsSlice = createSlice({
         { id: 7, name: "Weather", checked: true },
         { id: 8, name: "Todo", checked: true },
     ],
-    todoSettings: [
-    ],
+    
   },
   reducers: {
     toggleSetting(state, action) {
         console.log(action);
         let newSetting = [...state.generalSettings].filter(item => {
+          console.log(item.id);
             if(item.id === action.payload) {
                 item.checked = !item.checked
             }
@@ -33,4 +33,4 @@ export const settingsSlice = createSlice({
 });
 
 export default settingsSlice.reducer;
-export const { toggleSetting } = settingsSlice.actions;
+export const { toggleSetting , changeSettingsStatus} = settingsSlice.actions;

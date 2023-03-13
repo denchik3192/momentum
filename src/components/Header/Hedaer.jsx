@@ -1,22 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useRef, useState } from "react";
 import s from "./header.module.scss";
 import Player from "./Player/Player";
 import Weather from "./Weather/Weather";
-import { WiDayCloudy, WiDaySleet } from "react-icons/wi/";
 import playList from "../../data/playList";
-import Currency from "./Currency/Currency";
 import { useSelector } from "react-redux";
 import cn from "classnames";
-import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { Cloud } from "@mui/icons-material";
 
 const Header = (props) => {
-  const handle = useFullScreenHandle();
-  const [isFullscreen, setIsFullscreen] = useState(true);
+  
   const [weatherActive, setWeatherActive] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentSong, setCurrentSong] = useState(playList[0]);
   const [songs, setSongs] = useState(playList);
   const weatherData = useSelector((state) => state.weather);
   const isWeatherSettingActive = useSelector(
@@ -38,10 +32,6 @@ const Header = (props) => {
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
       />
-      {/* <Link to="/todopage"> ToDoPage </Link>
-      <Link to="/login"> Login </Link> */}
-      {/* <Fullscreen/> */}
-      {/* <Currency /> */}
       <div
         className={cn(s.weatherIcon, isWeatherSettingActive ? "" : s.hidden)}
         onClick={toggleWeather}
